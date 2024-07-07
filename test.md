@@ -1,6 +1,6 @@
 # **How To Install Go and Set Up a Local Programming Environment on Ubuntu 18.04**
 
-![alt_text](./assets/images/image1.png "image_tooltip")
+![Go logo](./assets/images/image1.png "Go logo")
 
 ## Introduction
 
@@ -25,6 +25,10 @@ To download and install Go, do the following:
 
 1. Copy the URL of the current binary release tarball from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it. You’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
 
+    
+    ![Tarball file with SHA256 for verifying download](./assets/images/sha256-optimized.png "Tarball download")
+
+
 1. Instead of using `sudo apt install` to install Go, use `curl` to retrieve the tarball from the URL you copied, which allows you to configure Go:
 
     ```
@@ -43,8 +47,9 @@ To download and install Go, do the following:
 
 1. Use `sha256sum` to verify the tarball:
 
-sha256sum go1.12.1.linux-amd64.tar.gz
-
+    ```
+    sha256sum go1.12.1.linux-amd64.tar.gz
+    ```
 The hash that is displayed from running the above command should match the hash that was on the downloads page. If it does not, then this is not a valid file and you should download the file again.
 
 Next, extract the downloaded archive and install it to the desired location on the system. It’s considered best practice to keep it under `/usr/local`:
