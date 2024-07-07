@@ -56,14 +56,52 @@ To download and verify the Go installation file, do the following:
     904b924d435eaea086515bc63235b192ea441bd8c9b198c507e85009e6e4c7f0  go1.22.5.linux-amd64.tar.gz
     ```
 
-sha256sum go1.12.1.linux-amd64.tar.gz
+## Extract the tarball file
 
-You will now have a directory called `go` in the `/usr/local` directory.
+Extract the downloaded tarball file and install it in your desired location. We recommend installation in `/usr/local`. Perform the extraction and installation by doing the following:
 
-Note: Although `/usr/local/go` is the officially-recommended location, some users may prefer or require different paths.
+1. Verify that Go is not yet  installed in `/usr/local`:
 
-In this step, you downloaded and installed Go on your Ubuntu 18.04 machine. In the next step you will configure your Go workspace.
+    ```
+    joshg@DESKTOP-L38CGNS:~$ ls /usr/local
+    ```
 
+   `ls` lists the contents of the directory supplied as an argument, `/usr/local`:
+
+    ```
+    aws-cli  etc    include  man   share
+    bin      games  lib      sbin  src
+    ```
+
+    Since the `Go` directory does not appear in the output, Go is not installed yet at this location. 
+ 
+
+1. User `tar` to extract the file from your home directory to `/usr/local`. 
+
+    ```
+    joshg@DESKTOP-L38CGNS:~$ sudo tar -xz -f go1.22.5.linux-amd64.tar.gz -C /usr/local  
+    ```
+
+    `sudo` is the Ubuntu command that invokes admin privileges, which you need since you are writing to a protected location that contains system files. `tar` is the utility that handles archive files, including ones that end in `tar.gz`. `-xz` indicate that `tar` should extract the file using the `gzip` algorithm. `-f` indicates that we will be supplying the filename, `go1.22.5.linux-amd64.tar.gz`. Finally, `-C` indicates the target directory in wich we want to extract the file, `/usr/local`. (There are [numerous sub-commands and options](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/#extract-a-tar-file) that `tar` can handle.)
+
+1. If the system asks for your admin password, enter it:
+
+    ```
+    [sudo] password for joshg: 
+    ```
+
+1. Check that the file was installed successfully in `/usr/local` by listing that directory's contents:
+
+    ```
+    ls /usr/local
+    ```
+
+    If the installation succeeded, the output of `ls` now shows the `Go` directory:
+
+    ```
+    aws-cli  etc    go       lib  sbin   src
+    bin      games  include  man  share
+    ```
 
 ## Step 2 — Creating Your Go Workspace
 
