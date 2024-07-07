@@ -73,16 +73,16 @@ Extract the downloaded tarball file and install it in your desired location. We 
     bin      games  lib      sbin  src
     ```
 
-    Since the `Go` directory does not appear in the output, Go is not installed yet at this location. 
+    Since a `go` directory does not appear in the output, Go is not installed yet at this location. 
  
 
-1. User `tar` to extract the file from your home directory to `/usr/local`. 
+1. Use `tar` to extract the file from your home directory to `/usr/local`. 
 
     ```
     joshg@DESKTOP-L38CGNS:~$ sudo tar -xz -f go1.22.5.linux-amd64.tar.gz -C /usr/local  
     ```
 
-    `sudo` is the Ubuntu command that invokes admin privileges, which you need since you are writing to a protected location that contains system files. `tar` is the utility that handles archive files, including ones that end in `tar.gz`. `-xz` indicate that `tar` should extract the file using the `gzip` algorithm. `-f` indicates that we will be supplying the filename, `go1.22.5.linux-amd64.tar.gz`. Finally, `-C` indicates the target directory in wich we want to extract the file, `/usr/local`. (There are [numerous sub-commands and options](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/#extract-a-tar-file) that `tar` can handle.)
+    `sudo` is the Ubuntu command that invokes admin privileges, which you need, since you are writing to a protected location that contains system files. `tar` is the utility that handles archive files, including ones that end in `tar.gz`. The `-xz` options indicate that `tar` should extract the file (`-x`) using the `gzip` (`-z`) algorithm. The `-f` option indicates that we will be supplying the filename, `go1.22.5.linux-amd64.tar.gz`. Finally, `-C` indicates the target directory in wich to extract the file, `/usr/local`. (There are [numerous sub-commands and options](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/#extract-a-tar-file) that `tar` can handle.)
 
 1. If the system asks for your admin password, enter it:
 
@@ -96,7 +96,7 @@ Extract the downloaded tarball file and install it in your desired location. We 
     ls /usr/local
     ```
 
-    If the installation succeeded, the output of `ls` now shows the `Go` directory:
+    If the installation succeeded, the output of `ls` now shows the `go` directory:
 
     ```
     aws-cli  etc    go       lib  sbin   src
