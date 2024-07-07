@@ -35,7 +35,7 @@ To download and install Go, do the following:
     curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
     ```
 
-    Using `-L0` is the equivalent of invoking both the `-L` option, which allows the server to complete the request if there is a URL redirect,  and the `-O` option, which writes the target (`go1.22.5.linux-amd64.tar.gz`) to a file of the same name in the directory (~) in which the `curl` command is executed. In other words, this command creates the file `~/go1.22.5.linux-amd64.tar.gz`. As the command runs, the command line updates to show the status of the tarball downloading. When the download completes, the command line prompt reappears:
+    Using `-L0` is the equivalent of invoking both the `-L` option, which allows the server to complete the request if there is a URL redirect,  and the `-O` option, which writes the target (`go1.22.5.linux-amd64.tar.gz`) to a file of the same name in the directory (`~`) in which the `curl` command is executed. In other words, this command creates the file `~/go1.22.5.linux-amd64.tar.gz`. As the command runs, the command line updates to show the status of the tarball downloading. When the download completes, the command line prompt reappears:
 
     ```
     joshg@DESKTOP-L38CGNS:~$ curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
