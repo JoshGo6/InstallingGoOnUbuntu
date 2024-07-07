@@ -13,7 +13,7 @@ This tutorial guides you through installing and configuring a programming worksp
 You will need a computer or virtual machine with Ubuntu 18.04 installed, admin access to the machine, and an internet connection. You can download this operating system via the [Ubuntu 18.04 releases page](http://releases.ubuntu.com/releases/18.04/). Additionally, this tutorial assumes you are comfortable using Ubuntu at the command line. For more information about the Linux command line, see the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial. 
 
 
-## Step 1 — Setting Up Go
+## Download and install Go
 
 To download and install Go, do the following:
 
@@ -23,15 +23,15 @@ To download and install Go, do the following:
     cd ~
     ```
 
-1. Copy the URL of the current binary release tarball from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it, as you’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
+1. Copy the URL of the current binary release tarball from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it. You’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
 
-1. Instead using `sudo apt install` to install Go, use `curl` to retrieve the tarball from the URL you copied, which allows you to configure Go:
+1. Instead of using `sudo apt install` to install Go, use `curl` to retrieve the tarball from the URL you copied, which allows you to configure Go:
 
     ```
     curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
     ```
 
-    The command line updates to show the tarball downloading. When the download completes, the command line prompt reappears:
+    Using `-L0` is the equivalent of invoking both the `-L` option, which allows the server to complete the request if there is a URL redirect,  and the `-O` option, which writes the target (`go1.22.5.linux-amd64.tar.gz`) to a file of the same name in the directory (~) in which the `curl` command is executed. In other words, this command creates the file `~/go1.22.5.linux-amd64.tar.gz`. As the command runs, the command line updates to show the status of the tarball downloading. When the download completes, the command line prompt reappears:
 
     ```
     joshg@DESKTOP-L38CGNS:~$ curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
