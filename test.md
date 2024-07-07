@@ -10,7 +10,7 @@ This tutorial guides you through installing and configuring a programming worksp
 
 ## Prerequisites
 
-You will need a computer or virtual machine with Ubuntu 18.04 installed, admin access to the machine, and an internet connection. You can download this operating system via the [Ubuntu 18.04 releases page](http://releases.ubuntu.com/releases/18.04/).
+You will need a computer or virtual machine with Ubuntu 18.04 installed, admin access to the machine, and an internet connection. You can download this operating system via the [Ubuntu 18.04 releases page](http://releases.ubuntu.com/releases/18.04/). Additionally, this tutorial assumes you are comfortable using Ubuntu at the command line. For more information about the Linux command line, see the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial. 
 
 
 ## Step 1 — Setting Up Go
@@ -21,7 +21,7 @@ To do this, you’ll want to find the URL for the current binary release tarball
 
 You’ll be completing the installation and setup on the command line, which is a non-graphical way to interact with your computer. That is, instead of clicking on buttons, you’ll be typing in text and receiving feedback from your computer through text as well.
 
-The command line, also known as a _shell_ or _terminal_, can help you modify and automate many of the tasks you do on a computer every day, and is an essential tool for software developers. There are many terminal commands to learn that can enable you to do more powerful things. For more information about the command line, check out the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial.
+The command line, also known as a _shell_ or _terminal_, can help you modify and automate many of the tasks you do on a computer every day, and is an essential tool for software developers. There are many terminal commands to learn that can enable you to do more powerful things.
 
 On Ubuntu 18.04, you can find the Terminal application by clicking on the Ubuntu icon in the upper-left hand corner of your screen and typing `terminal` into the search bar. Click on the Terminal application icon to open it. Alternatively, you can hit the `CTRL`, `ALT`, and `T` keys on your keyboard at the same time to open the Terminal application automatically.
 
