@@ -13,9 +13,9 @@ This tutorial guides you through installing and configuring a programming worksp
 You will need a computer or virtual machine with Ubuntu 18.04 installed, admin access to the machine, and an internet connection. You can download this operating system via the [Ubuntu 18.04 releases page](http://releases.ubuntu.com/releases/18.04/). Additionally, this tutorial assumes you are comfortable using Ubuntu at the command line. For more information about the Linux command line, see the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial. 
 
 
-## Download and install Go
+## Download and verify installation file
 
-To download and install Go, do the following:
+To download and verify the Go installation file, do the following:
 
 1. Navigate to your home (`~`) directory:
 
@@ -23,7 +23,7 @@ To download and install Go, do the following:
     cd ~
     ```
 
-1. Copy the URL of the current binary release tarball from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it. You’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
+1. Copy the URL of the current binary tarball file from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it. You’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
 
     
     ![Tarball file with SHA256 for verifying download](./assets/images/sha256-optimized.png "Tarball download")
@@ -45,14 +45,16 @@ To download and install Go, do the following:
     100 65.7M  100 65.7M    0     0  2989k      0  0:00:22  0:00:22 --:--:-- 3281k
     ```
 
-1. Use `sha256sum` to verify the tarball:
+1. Verify the download using `sha256sum`:
 
     ```
-    sha256sum go1.12.1.linux-amd64.tar.gz
+    joshg@DESKTOP-L38CGNS:~$ sha256sum go1.22.5.linux-amd64.tar.gz
     ```
-The hash that is displayed from running the above command should match the hash that was on the downloads page. If it does not, then this is not a valid file and you should download the file again.
+    The hash that is displayed from running this command should match the hash that was on the downloads page. If it does not, the file may have been corrupted, and you should download the file again.
 
-Next, extract the downloaded archive and install it to the desired location on the system. It’s considered best practice to keep it under `/usr/local`:
+    ```
+    904b924d435eaea086515bc63235b192ea441bd8c9b198c507e85009e6e4c7f0  go1.22.5.linux-amd64.tar.gz
+    ```
 
 sha256sum go1.12.1.linux-amd64.tar.gz
 
