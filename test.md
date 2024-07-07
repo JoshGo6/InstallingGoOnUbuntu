@@ -2,18 +2,15 @@
 
 ![alt_text](./assets/images/image1.png "image_tooltip")
 
-### Introduction
+## Introduction
 
-[Go](https://golang.org/) is a programming language that was born out of frustration at Google. Developers continually had to pick a language that executed efficiently but took a long time to compile, or to pick a language that was easy to program but ran inefficiently in production. Go was designed to have all three available at the same time: fast compilation, ease of programming, and efficient execution in production.
+Google developed the programming language [Go](https://golang.org/) out of a need for a language that was easily programmable, compiled quickly, and executed efficiently in production. Addtionally, while Go is a versatile, general-purpose language, it’s particularly well-suited for programs using networking/distributed, earning it a reputation as "the language of the cloud”. Go also simplifies formatting, by making the format part of the language specification, and deployment, by compiling to a single binary. Learning Go is straightforward, with a very small set of keywords, making it a good choice for beginners and experienced developers alike.
 
-While Go is a versatile programming language that can be used for many different programming projects, it’s particularly well suited for networking/distributed systems programs, and has earned a reputation as “the language of the cloud”. It focuses on helping the modern programmer do more with a strong set of tooling, removing debates over formatting by making the format part of the language specification, as well as making deployment easy by compiling to a single binary. Go is easy to learn, with a very small set of keywords, which makes it a great choice for beginners and experienced developers alike.
-
-This tutorial will guide you through installing and configuring a programming workspace with Go via the command line. This tutorial will explicitly cover the installation procedure for Ubuntu 18.04, but the general principles can apply to other Debian Linux distributions.
-
+This tutorial guides you through installing and configuring a programming workspace with Go via the command line in an for Ubuntu 18.04 environment, but the principles described here apply to other Debian Linux distributions.
 
 ## Prerequisites
 
-You will need a computer or virtual machine with Ubuntu 18.04 installed, as well as have administrative access to that machine and an internet connection. You can download this operating system via the [Ubuntu 18.04 releases page](http://releases.ubuntu.com/releases/18.04/).
+You will need a computer or virtual machine with Ubuntu 18.04 installed, admin access to the machine, and an internet connection. You can download this operating system via the [Ubuntu 18.04 releases page](http://releases.ubuntu.com/releases/18.04/).
 
 
 ## Step 1 — Setting Up Go
