@@ -1,6 +1,6 @@
 # **How To Install Go and Set Up a Local Programming Environment on Ubuntu 18.04**
 
-![alt_text](image1.png "image_tooltip")
+![alt_text](./assets/images/image1.png "image_tooltip")
 
 ### Introduction
 
@@ -29,7 +29,7 @@ The command line, also known as a _shell_ or _terminal_, can help you modify and
 On Ubuntu 18.04, you can find the Terminal application by clicking on the Ubuntu icon in the upper-left hand corner of your screen and typing `terminal` into the search bar. Click on the Terminal application icon to open it. Alternatively, you can hit the `CTRL`, `ALT`, and `T` keys on your keyboard at the same time to open the Terminal application automatically.
 
 
-![alt_text](image2.png "image_tooltip")
+![alt_text](./assets/images/image2.png "image_tooltip")
 
 
 Once the terminal is open, you will manually install the Go binaries. While you could use a package manager, such as `apt-get`, walking through the manual installation steps will help you understand any configuration changes to your system that are needed to have a valid Go workspace.
