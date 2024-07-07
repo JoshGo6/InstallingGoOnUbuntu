@@ -15,31 +15,33 @@ You will need a computer or virtual machine with Ubuntu 18.04 installed, admin a
 
 ## Step 1 — Setting Up Go
 
-In this step, you’ll install Go by downloading the current release from the [official Go downloads page](https://golang.org/dl/).
+To download and install Go, do the following:
 
-To do this, you’ll want to find the URL for the current binary release tarball. You will also want to note the SHA256 hash listed next to it, as you’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
+1. Navigate to your home (`~`) directory:
 
-You’ll be completing the installation and setup on the command line, which is a non-graphical way to interact with your computer. That is, instead of clicking on buttons, you’ll be typing in text and receiving feedback from your computer through text as well.
+    ```
+    cd ~
+    ```
 
-The command line, also known as a _shell_ or _terminal_, can help you modify and automate many of the tasks you do on a computer every day, and is an essential tool for software developers. There are many terminal commands to learn that can enable you to do more powerful things.
+1. Copy the URL of the current binary release tarball from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it, as you’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
 
-On Ubuntu 18.04, you can find the Terminal application by clicking on the Ubuntu icon in the upper-left hand corner of your screen and typing `terminal` into the search bar. Click on the Terminal application icon to open it. Alternatively, you can hit the `CTRL`, `ALT`, and `T` keys on your keyboard at the same time to open the Terminal application automatically.
+1. Instead using `sudo apt install` to install Go, use `curl` to retrieve the tarball from the URL you copied, which allows you to configure Go:
 
+    ```
+    curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
+    ```
 
-![alt_text](./assets/images/image2.png "image_tooltip")
+    The command line updates to show the tarball downloading. When the download completes, the command line prompt reappears:
 
+    ```
+    joshg@DESKTOP-L38CGNS:~$ curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                     Dload  Upload   Total   Spent    Left  Speed
+    100    75  100    75    0     0    398      0 --:--:-- --:--:-- --:--:--   401
+    100 65.7M  100 65.7M    0     0  2989k      0  0:00:22  0:00:22 --:--:-- 3281k
+    ```
 
-Once the terminal is open, you will manually install the Go binaries. While you could use a package manager, such as `apt-get`, walking through the manual installation steps will help you understand any configuration changes to your system that are needed to have a valid Go workspace.
-
-Before downloading Go, make sure that you are in the home (`~`) directory:
-
-cd ~
-
-Use `curl` to retrieve the tarball URL that you copied from the official Go downloads page:
-
-curl -LO https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz
-
-Next, use `sha256sum` to verify the tarball:
+1. Use `sha256sum` to verify the tarball:
 
 sha256sum go1.12.1.linux-amd64.tar.gz
 
