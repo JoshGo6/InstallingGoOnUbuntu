@@ -58,7 +58,7 @@ To download and verify the Go installation file, do the following:
 
 ## Extract the tarball file
 
-Extract the downloaded tarball file and install it in your desired location. We recommend installation in `/usr/local`. Perform the extraction and installation by doing the following:
+The tarball file is an archive file that contains other files and directories. After downloading it, extract and install its contents to your desired location. We recommend installation in `/usr/local`, which you can do by following these steps: 
 
 1. Verify that Go is not yet  installed in `/usr/local`:
 
