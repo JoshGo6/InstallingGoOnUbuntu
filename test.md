@@ -103,9 +103,25 @@ The tarball file is an archive file that contains other files and directories. A
     bin      games  include  man  share
     ```
 
-## Step 2 — Creating Your Go Workspace
+## Create your Go workspace
 
-You can create your programming workspace now that Go is installed. The Go workspace will contain two directories at its root:
+Now that Go is installed, create a programming workspace that contains two directories, `src` and `bin`. We recommend creating these directories directly under your home (`~`) directory. Run the following three lines of code, **but note that the content after** the `#` on each line is not to be typed on the command line, since it is just an explanation of what that command does:
+
+```
+cd ~/go  # Navigate to `~/go`, where Go is installed.
+mkdir bin # Create the `bin` directory. 
+mkdir src # Create the `src` directory.
+```
+
+You now have the following directory structure:
+
+```
+└── ~
+    └── go
+        ├── bin
+        └── src
+```
+
 
 * `src`: The directory that contains Go source files. A source file is a file that you write using the Go programming language. Source files are used by the Go compiler to create an executable binary file.
 * `bin`: The directory that contains executables built and installed by the Go tools. Executables are binary files that run on your system and execute tasks. These are typically the programs compiled by your source code or other downloaded Go source code.
@@ -135,20 +151,6 @@ Here is what a typical workspace may look like:
                     ├── droplet.go
                     └── droplet_test.go
 
-The default directory for the Go workspace as of 1.8 is your user’s home directory with a `go` subdirectory, or `$HOME/go`. If you are using an earlier version of Go than 1.8, it is still considered best practice to use the `$HOME/go` location for your workspace.
-
-Issue the following command to create the directory structure for your Go workspace:
-
-mkdir -p $HOME/go/{bin,src}
-
-The `-p` option tells `mkdir` to create all `parents` in the directory, even if they don’t currently exist. Using `{bin,src}` creates a set of arguments to `mkdir` and tells it to create both the `bin` directory and the `src` directory.
-
-This will ensure the following directory structure is now in place:
-
-└── $HOME
-    └── go
-        ├── bin
-        └── src
 
 Prior to Go 1.8, it was required to set a local environment variable called `$GOPATH`. `$GOPATH` told the compiler where to find imported third party source code, as well as any local source code you had written. While it is no longer explicitly required, it is still considered a good practice as many third party tools still depend on this variable being set.
 
