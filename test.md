@@ -284,6 +284,4 @@ If your system produced this output, you have now verified that your Go workspac
 
 ## Conclusion
 
-Congratulations! At this point you have a Go programming workspace set up on your Ubuntu machine and can begin a coding project!
-
 Thanks for learning with the DigitalOcean Community. Check out our offerings for compute, storage, networking, and managed databases.
