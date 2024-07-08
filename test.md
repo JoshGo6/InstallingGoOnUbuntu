@@ -221,6 +221,7 @@ ll $GOPATH/src/github.com/digitalocean/godo
 
 You should see output similar to this:
 
+```bash
 drwxr-xr-x 4 root root  4096 Apr  5 00:43 ./
 drwxr-xr-x 3 root root  4096 Apr  5 00:43 ../
 drwxr-xr-x 8 root root  4096 Apr  5 00:43 .git/
@@ -233,6 +234,7 @@ drwxr-xr-x 8 root root  4096 Apr  5 00:43 .git/
 .
 -rw-r--r-- 1 root root  4893 Apr  5 00:43 vpcs.go
 -rw-r--r-- 1 root root  4091 Apr  5 00:43 vpcs_test.go
+```
 
 In this step, you created a Go workspace and configured the necessary environment variables. In the next step you will test the workspace with some code.
 
