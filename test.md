@@ -236,41 +236,51 @@ drwxr-xr-x 8 root root  4096 Apr  5 00:43 .git/
 -rw-r--r-- 1 root root  4091 Apr  5 00:43 vpcs_test.go
 ```
 
-In this step, you created a Go workspace and configured the necessary environment variables. In the next step you will test the workspace with some code.
+## Create and run a program
 
+Now that you have configured the Go workspace, test it by creating and running a short “Hello, World!” program, by doing the following:
 
-## Step 3 — Creating a Simple Program
+1. Navigate to `~/go/src`.
 
-Now that you have the Go workspace set up, create a “Hello, World!” program. This will make sure that the workspace is configured properly, and also gives you the opportunity to become more familiar with Go. Because we are creating a single Go source file, and not an actual project, we don’t need to be in our workspace to do this.
+    ```bash
+    cd ~/go/src
+    ``` 
+    
+2. Use `nano` or another text editor to create a new file named `hello.go`.
 
-From your home directory, open up a command-line text editor, such as `nano`, and create a new file:
+    ```bash
+    nano hello.go
+    ```
 
-nano hello.go
+3. When `nano` (or the editor of your choice) opens, store the following code in the `hello.go` file, which prints `Hello, World!` to your terminal, upon execution.
 
-Write your program in the new file:
+    ```go
+    package main
+    import "fmt"
 
-package main
+    func main() {
+        fmt.Println("Hello, World!")
+    }   
+    ```
 
-import "fmt"
+In Go, every file belongs to a package. Since `hello.go` is not called by another package (which would make it a library), the file is  a standalone package, which always begins with `package main` as its first line. The next line imports the `fmt` library, since standalone packages are not called by other packages but *can* import libraries, which contain additional functionality. Importing `fmt` allows `hello.go` to use the functionality in that library instead of having to author that functionality all over again. The `fmt` library contains formatting functions, including `Println`, which prints text to the terminal. 
 
-func main() {
-	fmt.Println("Hello, World!")
-}
+When the file executes, the system calls the `main` function first, which comes next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompot.
 
-This code will use the `fmt` package and call the `Println` function with `Hello, World!` as the argument. This will cause the phrase `Hello, World!` to print out to the terminal when the program is run.
+Exit `nano` by pressing the `CTRL` and `X` keys. When prompted to save the file, press `Y` and then `ENTER`, which exits nano and returns you to the command prompt. Now run `hello.go`:
 
-Exit `nano` by pressing the `CTRL` and `X` keys. When prompted to save the file, press `Y` and then `ENTER`.
-
-Once you exit out of `nano` and return to your shell, run the program:
-
+```
 go run hello.go
+```
 
-The `hello.go` program will cause the terminal to produce the following output:
+The terminal produces the following output:
 
+```bash
+Output
 Hello, World!
+```
 
-In this step, you used a basic program to verify that your Go workspace is properly configured.
-
+If your system produced this output, you have now verified that your Go workspace is properly configured.
 
 ## Conclusion
 
