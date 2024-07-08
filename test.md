@@ -19,7 +19,7 @@ To download and verify the Go installation file, do the following:
 
 1. Navigate to your home (`~`) directory:
 
-    ```
+    ```bash
     cd ~
     ```
 
@@ -31,14 +31,14 @@ To download and verify the Go installation file, do the following:
 
 1. Instead of using `sudo apt install` to install Go, use `curl` to retrieve the tarball from the URL you copied, which allows you to configure Go:
 
-    ```
+    ```bash
     curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
     ```
 
     Using `-L0` is the equivalent of invoking both the `-L` option, which allows the server to complete the request if there is a URL redirect,  and the `-O` option, which writes the target (`go1.22.5.linux-amd64.tar.gz`) to a file of the same name in the directory (`~`) in which the `curl` command is executed. In other words, this command creates the file `~/go1.22.5.linux-amd64.tar.gz`. As the command runs, the command line updates to show the status of the tarball downloading. When the download completes, the command line prompt reappears:
 
-    ```
-    joshg@DESKTOP-L38CGNS:~$ curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
+    ```bash
+    Output
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                      Dload  Upload   Total   Spent    Left  Speed
     100    75  100    75    0     0    398      0 --:--:-- --:--:-- --:--:--   401
@@ -47,12 +47,13 @@ To download and verify the Go installation file, do the following:
 
 1. Verify the download using `sha256sum`:
 
-    ```
-    joshg@DESKTOP-L38CGNS:~$ sha256sum go1.22.5.linux-amd64.tar.gz
+    ```bash
+    sha256sum go1.22.5.linux-amd64.tar.gz
     ```
     The hash that is displayed from running this command should match the hash that was on the downloads page. If it does not, the file may have been corrupted, and you should download the file again.
 
-    ```
+    ```bash
+    Output
     904b924d435eaea086515bc63235b192ea441bd8c9b198c507e85009e6e4c7f0  go1.22.5.linux-amd64.tar.gz
     ```
 
@@ -62,13 +63,14 @@ The tarball file is an archive file that contains other files and directories. A
 
 1. Verify that Go is not yet  installed in `/usr/local`:
 
-    ```
-    joshg@DESKTOP-L38CGNS:~$ ls /usr/local
+    ```bash
+    ls /usr/local
     ```
 
    `ls` lists the contents of the directory supplied as an argument, `/usr/local`:
 
-    ```
+    ```bash
+    Output
     aws-cli  etc    include  man   share
     bin      games  lib      sbin  src
     ```
@@ -78,42 +80,43 @@ The tarball file is an archive file that contains other files and directories. A
 
 1. Use `tar` to extract the file from your home directory to `/usr/local`. 
 
-    ```
-    joshg@DESKTOP-L38CGNS:~$ sudo tar -xz -f go1.22.5.linux-amd64.tar.gz -C /usr/local  
+    ```bash
+    sudo tar -xz -f go1.22.5.linux-amd64.tar.gz -C /usr/local  
     ```
 
     `sudo` is the Ubuntu command that invokes admin privileges, which you need, since you are writing to a protected location that contains system files. `tar` is the utility that handles archive files, including ones that end in `tar.gz`. The `-xz` options indicate that `tar` should extract the file (`-x`) using the `gzip` (`-z`) algorithm. The `-f` option indicates that we will be supplying the filename, `go1.22.5.linux-amd64.tar.gz`. Finally, `-C` indicates the target directory in wich to extract the file, `/usr/local`. (There are [numerous sub-commands and options](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/#extract-a-tar-file) that `tar` can handle.)
 
 1. If the system asks for your admin password, enter it:
 
-    ```
-    [sudo] password for joshg: 
+    ```bash
+    [sudo] password for user: 
     ```
 
 1. Check that the file was installed successfully in `/usr/local` by listing that directory's contents:
 
-    ```
+    ```bash
     ls /usr/local
     ```
 
     If the installation succeeded, the output of `ls` now shows the `go` directory:
 
-    ```
+    ```bash
+    Output
     aws-cli  etc    go       lib  sbin   src
     bin      games  include  man  share
     ```
 
 ## Create your Go workspace
 
-Now that Go is installed, create a programming workspace that contains two directories, `src` and `bin`. We recommend creating these directories directly under your home (`~`) directory. Run the following three lines of code, **but note that the content after** the `#` on each line is not to be typed on the command line, since it is just an explanation of what that command does:
+Now that Go is installed, create a programming workspace that contains two directories, `src` and `bin`. We recommend creating these directories directly under your home (`~`) directory. To do this, run the following: 
 
-```
-cd ~/go  # Navigate to `~/go`, where Go is installed.
-mkdir bin # Create the `bin` directory. 
-mkdir src # Create the `src` directory.
+```bash
+cd ~/go 
+mkdir  
+mkdir 
 ```
 
-You now have the following directory structure:
+This changes directories to `~/go` and creates the following directory structure:
 
 ```
 └── ~
