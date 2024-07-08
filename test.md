@@ -122,6 +122,7 @@ You now have the following directory structure:
         └── src
 ```
 
+## Understanding the workspace
 
 * `src`: The directory that contains Go source files. A source file is a file that you write using the Go programming language. Source files are used by the Go compiler to create an executable binary file.
 * `bin`: The directory that contains executables built and installed by the Go tools. Executables are binary files that run on your system and execute tasks. These are typically the programs compiled by your source code or other downloaded Go source code.
@@ -151,6 +152,7 @@ Here is what a typical workspace may look like:
                     ├── droplet.go
                     └── droplet_test.go
 
+## Set environment variables
 
 Prior to Go 1.8, it was required to set a local environment variable called `$GOPATH`. `$GOPATH` told the compiler where to find imported third party source code, as well as any local source code you had written. While it is no longer explicitly required, it is still considered a good practice as many third party tools still depend on this variable being set.
 
