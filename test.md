@@ -1,9 +1,5 @@
 # **How To Install Go and Set Up a Local Programming Environment on Ubuntu 18.04**
 
-![Go logo](./assets/images/image1.png "Go logo")
-
-## Introduction
-
 Google developed the programming language [Go](https://golang.org/) out of a need for a language that was easily programmable, compiled quickly, and runs efficiently in production. Addtionally, while Go is a versatile, general-purpose language, it’s particularly well-suited for programs using networking/distributed, earning it a reputation as "the language of the cloud”. Go also simplifies formatting, by making the format part of the language specification, and deployment, by compiling to a single binary. Learning Go is straightforward, with a very small set of keywords, making it a good choice for beginners and experienced developers alike.
 
 This tutorial guides you through installing and configuring a programming workspace with Go via the command line in an for Ubuntu 18.04 environment, but the principles described here apply to other Debian Linux distributions.
