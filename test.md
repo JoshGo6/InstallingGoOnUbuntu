@@ -313,8 +313,3 @@ Now that you have configured the Go workspace, test it by creating and running a
     ```
 
     If your system produced this output, you have now verified that your Go workspace is properly configured.
-
-## Conclusion
-
-Thanks for learning with the DigitalOcean Community. Check out our offerings for compute, storage, networking, and managed databases.
-
