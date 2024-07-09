@@ -349,7 +349,7 @@ Now that you have created your Go workspace, test it by creating and running a s
     nano hello.go
     ```
 
-3. When `nano` (or the editor of your choice) opens, store the following code in the `hello.go` file, which prints `Hello, World!` to your terminal, upon execution.
+3. When `nano` opens, enter the following in the file:
 
     ```go
     package main
@@ -360,11 +360,13 @@ Now that you have created your Go workspace, test it by creating and running a s
     }   
     ```
 
-    In Go, every file belongs to a package. Since `hello.go` is not called by another package (which would make it a library), the file is  a standalone package, which always begins with `package main` as its first line. The next line imports the `fmt` library, since standalone packages are not called by other packages but *can* import libraries, which contain additional functionality. Importing `fmt` allows `hello.go` to use the functionality in that library instead of having to author that functionality all over again. The `fmt` library contains formatting functions, including `Println`, which prints text to the terminal. 
+    In Go, every file belongs to a package. Since `hello.go` is not called by another package (which would make it a library), the file is a standalone package, which always begins with `package main` as its first line. The next line imports the `fmt` library. (Standalone packages are not called by other packages but *can* import libraries, which contain additional functionality.) Importing `fmt` allows `hello.go` to use the functionality in that library instead of requiring the developer to author that functionality all over again. The `fmt` library contains formatting functions, including `Println`, which prints text to the terminal. 
 
-    When the file runs, the system calls the `main` function first, which comes next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompot.
+    When the file runs, the system calls the `main` function first, which comes next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompt.
 
-1. Exit `nano` by pressing the `CTRL` and `X` keys. When prompted to save the file, press `Y` and then `ENTER`, which exits nano and returns you to the command prompt. 
+1. Save the file by entering `CTRL+O` and then pressing `Enter`, when prompted.
+
+1. After `nano` confirms that the file has been written to, exit `nano` by entering `CTRL+X`.
 
 1. Run `hello.go`:
 
@@ -379,4 +381,4 @@ Now that you have created your Go workspace, test it by creating and running a s
     Hello, World!
     ```
 
-    If your system produced this output, you have now verified that your Go workspace is properly configured.
+    If your system produced this output, you have now verified that your Go installation is complete.
