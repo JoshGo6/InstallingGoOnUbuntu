@@ -108,14 +108,15 @@ Now that you have installed Go, create your workspace and download your first pa
 
 ### Understanding the workspace
 
-* `src`: The directory that contains Go source files. A source file is a file that you write using the Go programming language. Source files are used by the Go compiler to create an executable binary file.
-* `bin`: The directory that contains executables built and installed by the Go tools. Executables are binary files that run on your system and perform tasks. These are typically the programs compiled by your source code or other downloaded Go source code.
+When you program using Go, you'll use a directory workspace that contains the following directories:
 
-The `src` subdirectory may contain multiple version control repositories (such as [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/), and [Bazaar](http://bazaar.canonical.com/)). This allows for a canonical import of code in your project. _Canonical_ imports are imports that reference a fully qualified package, such as `github.com/digitalocean/godo`.
+* `bin`: This directory contains executables built and installed by the Go tools. Executables are binary program files that run on a system. These files are the output of a Go compiler and are the end product of a Go program, since an executable file allows you to use your code to perform the tasks it was designed to do.
+* `pkg` This directory contains packages that you have downloaded. These packages contain Go files that you can use in your projects so that you do not have to re-create this functionality.
+* `src`: This directory contains files you have authored in Go. The Go compiler uses these files to create an executable binary file. 
 
-You will see directories like `github.com`, `golang.org`, or others when your program imports third party libraries. If you are using a code repository like `github.com`, you will also put your projects and source files under that directory. We will explore this concept later in this step.
+When importing packages into the `pkg` subdirectory, the import process often creates a version-controlled directory, which allows the developers of the packages and yourself to keep track of changes to the packages as the software evolves over time. Two typical names of of such directories are `github.com` and `golang.org`, but you may see other names, as well. If you are using a version control system like Git in conjunction with Github.com, you may also choose to put your own your source files under a directory named `github.com`, though you may choose another name. You can find out more about version control systems by viewing the official pages of [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/), and [Bazaar](http://bazaar.canonical.com/). 
 
-Here is what a typical workspace may look like:
+Besides the main `bin`, `pkg`, and `src` directories, there may be many subdirectories and files within these, as shown in the following example, which is a typical Go workspace:
 
 ```bash
 .
