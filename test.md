@@ -222,7 +222,7 @@ When compiling your Go programs, you could type in full paths for the Go compile
 
 As an example, the `$PATH` variable is an environment variable that your operating system uses to look for executable files and scripts when it can't find those files in the directory in which a command is run. When you run the Go compiler, you issue the command `go run`. Without an environment variable, you would have to run `/usr/local/go/bin/go run`. After setting up a few environment variables (including `$PATH`), you can type `go run`, instead.
 
-There are several ways of setting the necessary environment variables, but we recommend setting them by editing your `.bashrc` file. If you are using a shell other than `bash`, such as `zsh`, edit the corresponding file (for example, `.zshrc`). Set the (environment) variables by doing the following:
+There are several ways of setting the necessary environment variables, but we recommend setting them by editing your `.bashrc` file. If you are using a shell other than `bash`, such as `zsh`, edit the corresponding file (for example, `.zshrc`). Set the environment variables by doing the following:
 
 1. Open the `.bashrc` file, which is located in your home directory, using nano:
 
@@ -238,11 +238,11 @@ There are several ways of setting the necessary environment variables, but we re
     export GOBINARYPATH="/usr/local/go/bin"
     export PATH="$PATH:$GOPATH:$USERBINARIES:$GOBINARYPATH"
     ``` 
-    This creates three new variables and updates the `$PATH` variable to include the relevant directories that Go uses. `GOPATH="$HOME/go"`, creates the first variable, `$GOPATH`, which is set to `$HOME/go`. This allows third party tools that look for `GOPATH` to know where your workspace is, so files can be automatically put there. Note that in setting `$GOPATH`, we have used another environment variable, `$HOME` and added `/go` to the end of that path. (At the command line, when you type `cd ~`, this is equivalent to typing `cd $HOME`. When setting environment variables, we cannot use the `~` shorthand.)
+    This creates three new environment variables and updates the `$PATH` environment variable to include the relevant directories that Go uses. `GOPATH="$HOME/go"`, creates the first variable, `$GOPATH`, which is set to `$HOME/go`. This allows third party tools that look for `GOPATH` to know where your workspace is, so files can be automatically put there. Note that in setting `$GOPATH`, we have used another environment variable, `$HOME` and added `/go` to the end of that path. (At the command line, when you type `cd ~`, this is equivalent to typing `cd $HOME`. When setting environment variables, we cannot use the `~` shorthand.)
 
-    `USERBINARIES` is created by next by taking the value of `$GOPATH` and appending `/bin` to the end of that path, resulting in `$USERBINARIES` being set to `$HOME/go/bin`. When Go compiles and installs tools, it puts them in this directory.
+    The next environment variable, `USERBINARIES`, is created by taking the value of `$GOPATH` and appending `/bin` to the end of that path, resulting in `$USERBINARIES` being set to `$HOME/go/bin`. When Go compiles and installs tools, it puts them in this directory.
 
-    The third new variable created is `GOBINARYPATH`, which is the path to the Go binary that you installed using `tar`. To allow you, Go, and third-party tools to run all Go programs from anywhere on your system, the last line of the file updates `$PATH` by appending the values of each of these new variables to the existing value of `$PATH`.
+    The third new environment variable created is `GOBINARYPATH`, which is the path to the Go binary that you installed using `tar`. Finally, to allow you, Go, and third-party tools to run all Go programs from anywhere on your system, the final line of the file updates `$PATH` by appending the values of each of these new variables to the existing value of `$PATH`.
 
 1. Save the edited `.bashrc` by entering `CTRL+O` and then pressing `Enter`, when prompted.
 
@@ -264,7 +264,7 @@ There are several ways of setting the necessary environment variables, but we re
 
     ```bash
     Output
-    . (Lines of text)
+    . 
     .
     .   
     /home/test-user/go:/home/test-user/go/bin:/usr/local/go/bin
@@ -280,6 +280,7 @@ There are several ways of setting the necessary environment variables, but we re
     You should receive output similar to the following, if the installation and environment variables are set correctly:
 
     ```bash
+    Output
     go version go1.22.5 linux/amd64
     ```
 
