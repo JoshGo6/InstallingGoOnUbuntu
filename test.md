@@ -297,24 +297,26 @@ Now that you have configured the Go workspace, test it by creating and running a
     }   
     ```
 
-In Go, every file belongs to a package. Since `hello.go` is not called by another package (which would make it a library), the file is  a standalone package, which always begins with `package main` as its first line. The next line imports the `fmt` library, since standalone packages are not called by other packages but *can* import libraries, which contain additional functionality. Importing `fmt` allows `hello.go` to use the functionality in that library instead of having to author that functionality all over again. The `fmt` library contains formatting functions, including `Println`, which prints text to the terminal. 
+    In Go, every file belongs to a package. Since `hello.go` is not called by another package (which would make it a library), the file is  a standalone package, which always begins with `package main` as its first line. The next line imports the `fmt` library, since standalone packages are not called by other packages but *can* import libraries, which contain additional functionality. Importing `fmt` allows `hello.go` to use the functionality in that library instead of having to author that functionality all over again. The `fmt` library contains formatting functions, including `Println`, which prints text to the terminal. 
 
-When the file runs, the system calls the `main` function first, which comes next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompot.
+    When the file runs, the system calls the `main` function first, which comes next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompot.
 
-Exit `nano` by pressing the `CTRL` and `X` keys. When prompted to save the file, press `Y` and then `ENTER`, which exits nano and returns you to the command prompt. Now run `hello.go`:
+1. Exit `nano` by pressing the `CTRL` and `X` keys. When prompted to save the file, press `Y` and then `ENTER`, which exits nano and returns you to the command prompt. 
 
-```
-go run hello.go
-```
+1. Run `hello.go`:
 
-The terminal produces the following output:
+    ```
+    go run hello.go
+    ```
 
-```bash
-Output
-Hello, World!
-```
+    The terminal produces the following output:
 
-If your system produced this output, you have now verified that your Go workspace is properly configured.
+    ```bash
+    Output
+    Hello, World!
+    ```
+
+    If your system produced this output, you have now verified that your Go workspace is properly configured.
 
 ## Conclusion
 
