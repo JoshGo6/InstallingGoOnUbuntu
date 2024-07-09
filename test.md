@@ -111,12 +111,14 @@ The tarball file is an archive file that contains other files and directories. A
 Now that Go is installed, create a programming workspace that contains two directories: `src` and `bin`. We recommend creating these directories directly under `~/go`. To do this, run the following: 
 
 ```bash
-cd ~/go 
+cd ~
+mkdir go
+cd go
 mkdir bin  
 mkdir src
 ```
 
-The `cd` commands navigates you to the correct directory (if you are not already in that directory). The two `mkdir` commands after that create the following directory structure:
+The `cd ~` changes the directory to your home directory. The `mkdir go` command creates a `go` directory there, and `cd go` navigates you to that directory. The last two `mkdir` commands then create two directories, `bin` and `src`, under that location, which results in the following directory structure:
 
 ```
 └── ~
