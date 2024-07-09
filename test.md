@@ -159,84 +159,116 @@ Here is what a typical workspace may look like:
 
 ## Set environment variables
 
-Prior to Go 1.8, it was required to set a local environment variable called `$GOPATH`. `$GOPATH` told the compiler where to find imported third party source code, as well as any local source code you had written. While it is no longer explicitly required, it is still considered a good practice as many third party tools still depend on this variable being set.
+When compiling your Go programs, you could type in full paths for the Go compiler and other files, but it's more convenient, as well as standard practice to use environment variables. Environment variables store full paths that can be referenced with the variable name, which becomes a shorthand.
 
-You can set your `$GOPATH` by adding the global variables to your `~/.profile`. You may want to add this into `.zshrc` or `.bashrc` file as per your shell configuration.
+As an example, the `$PATH` variable is an environment variable that your operating system uses to look for executable files and scripts when it can't find those files in the directory in which a command is run. When you run the Go compiler, you issue the command `go run`. Without an environment variable, you would have to run `/usr/local/go/bin/go run`. After setting up a few environment variables (including `$PATH`), you can type `go run`, instead.
 
-First, open `~/.profile` with `nano` or your preferred text editor:
+There are several ways of setting the necessary environment variables, but we recommend setting them by editing your `.bashrc` file. If you are using a shell other than `bash`, such as `zsh`, edit the corresponding file (for example, `.zshrc`). Set the (environment) variables by doing the following:
 
-nano ~/.profile
+1. Open the `.bashrc` file, which is located in your home directory, using nano:
 
-Set your `$GOPATH` by adding the following to the file:
+    ```bash
+    nano ~/.bashrc
+    ```
 
-export GOPATH=$HOME/go
+1. Scroll to the bottom of the file and enter the following, beginning on a new line:
 
-When Go compiles and installs tools, it will put them in the `$GOPATH/bin` directory. For convenience, it’s common to add the workspace’s `/bin` subdirectory to your `PATH` in your `~/.profile`:
+    ```bash
+    export GOPATH="$HOME/go"
+    export USERBINARIES="$GOPATH/bin"
+    export GOBINARYPATH="/usr/local/go/bin"
+    export PATH="$PATH:$GOPATH:$USERBINARIES:$GOBINARYPATH"
+    ``` 
+    This creates three new variables and updates the `$PATH` variable to include the relevant directories that Go uses. `GOPATH="$HOME/go"`, creates the first variable, `$GOPATH`, which is set to `$HOME/go`. This allows third party tools that look for `GOPATH` to know where your workspace is, so files can be automatically put there. Note that in setting `$GOPATH`, we have used another environment variable, `$HOME` and added `/go` to the end of that path. (At the command line, when you type `cd ~`, this is equivalent to typing `cd $HOME`. When setting environment variables, we cannot use the `~` shorthand.)
 
-export PATH=$PATH:$GOPATH/bin
+    `USERBINARIES` is created by next by taking the value of `$GOPATH` and appending `/bin` to the end of that path, resulting in `$USERBINARIES` being set to `$HOME/go/bin`. When Go compiles and installs tools, it puts them in this directory.
 
-This will allow you to run any programs you compile or download via the Go tools anywhere on your system.
+    The third new variable created is `GOBINARYPATH`, which is the path to the Go binary that you installed using `tar`. To allow you, Go, and third-party tools to run all Go programs from anywhere on your system, the last line of the file updates `$PATH` by appending the values of each of these new variables to the existing value of `$PATH`.
 
-Finally, you need to add the `go` binary to your `PATH`. You can do this by adding `/usr/local/go/bin` to the end of the line:
+1. Save the edited `.bashrc` by entering `CTRL+O` and then pressing `Enter`, when prompted.
 
-export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+1. After `nano` confirms that the file has been written to, exit `nano` by entering `CTRL+X`.
 
-Adding `/usr/local/go/bin` to your `$PATH` makes all of the Go tools available anywhere on your system.
+1. To update your shell so that it can use the three new environment variables as well as the updated value of `$PATH`, run:
 
-To update your shell, issue the following command to load the global variables:
+    ```bash
+    source ~/.bashrc
+    ```
 
-. ~/.profile
+    This instructs Ubuntu to reload `~/.bashrc` so the new environment variables and the updated `$PATH` are now accessible to the OS.
 
-You can verify your `$PATH` is updated by using the `echo` command and inspecting the output:
+1. Verify that `$PATH` has been updated by running:
 
-echo $PATH
+    ```bash
+    echo $PATH
+    ```
 
-You will see your `$GOPATH/bin` which will show up in your home directory. If you are logged in as `root`, you would see `/root/go/bin` in the path.
+    ```bash
+    Output
+    . (Lines of text)
+    .
+    .   
+    /home/joshg/go:/home/joshg/go/bin:/usr/local/go/bin
+     ```
 
-You will also see the path to the Go tools for `/usr/local/go/bin`:
+    If you are logged in as `root`, you would see `/root/go/bin` in the path.
 
-Verify the installation by checking the current version of Go:
+1. Verify the installation by checking the current version of Go:
+    ```bash
+    go version
+    ```
+    
+    You should receive output similar to the following, if the installation and environment variables are set correctly:
 
-go version
+    ```bash
+    go version go1.22.5 linux/amd64
+    ```
 
-And we should receive output like this:
+1. Create a directory structure that contains a `GitHub` directory for source control, by running:
 
-go version go1.12.1 linux/amd64
+    ```bash
+    go install github.com/digitalocean/godo@latest
+    ```
 
-Now that you have the root of the workspace created and your `$GOPATH` environment variable set, you can create your future projects with the following directory structure. This example assumes you are using `github.com` as your repository:
+    This installs the `Godo`, which is a Go client library for accessing the DigitalOcean V2 API (application programming interface).
 
-$GOPATH/src/github.com/username/project
+    Your output may vary, but may look like the following:
 
-So as an example, if you were working on the `[https://github.com/digitalocean/godo](https://github.com/digitalocean/godo)` project, it would be stored in the following directory:
+    ```bash
+    Output
+    go: downloading github.com/digitalocean/godo v1.118.0
+    go: github.com/digitalocean/godo@latest (in github.com/digitalocean/godo@v1.118.0):
+    The go.mod file for the module providing named packages contains one or more replace directives. It must not contain directives that would cause it to be interpreted differently than if it were the main module.
+    ```
 
-$GOPATH/src/github.com/digitalocean/godo
+1. Verify that the command installed `Godo` and created the directory structure by running:
 
-This project structure will make projects available with the `go get` tool. It will also help readability later. You can verify this by using the `go get` command and fetch the `godo` library:
+    ```bash
+    ls -lR1  
+    ```
 
-go get github.com/digitalocean/godo
+   If the installation was successful, the command generates a substantial amount of output:
 
-This will download the contents of the `godo` library and create the `$GOPATH/src/github.com/digitalocean/godo` directory on your machine.
-
-You can check to see if it successfully downloaded the `godo` package by listing the directory:
-
-ll $GOPATH/src/github.com/digitalocean/godo
-
-You should see output similar to this:
-
-```bash
-drwxr-xr-x 4 root root  4096 Apr  5 00:43 ./
-drwxr-xr-x 3 root root  4096 Apr  5 00:43 ../
-drwxr-xr-x 8 root root  4096 Apr  5 00:43 .git/
--rwxr-xr-x 1 root root     8 Apr  5 00:43 .gitignore*
--rw-r--r-- 1 root root    61 Apr  5 00:43 .travis.yml
--rw-r--r-- 1 root root  2808 Apr  5 00:43 CHANGELOG.md
--rw-r--r-- 1 root root  1851 Apr  5 00:43 CONTRIBUTING.md
-.
-.
-.
--rw-r--r-- 1 root root  4893 Apr  5 00:43 vpcs.go
--rw-r--r-- 1 root root  4091 Apr  5 00:43 vpcs_test.go
-```
+    ```bash
+    Output
+    .
+    .
+    .
+    /home/joshg/go/pkg/mod/github.com/digitalocean/godo@v1.118.0:
+    total 1384
+    -r--r--r-- 1 joshg joshg  2435 Jul  8 23:09 1-click.go
+    -r--r--r-- 1 joshg joshg  1408 Jul  8 23:09 1-click_test.go
+    -r--r--r-- 1 joshg joshg 23279 Jul  8 23:09 CHANGELOG.md
+    -r--r--r-- 1 joshg joshg  2716 Jul  8 23:09 CONTRIBUTING.md
+    -r--r--r-- 1 joshg joshg  2694 Jul  8 23:09 LICENSE.txt
+    -r--r--r-- 1 joshg joshg  5712 Jul  8 23:09 README.md
+    -r--r--r-- 1 joshg joshg  1898 Jul  8 23:09 account.go
+    -r--r--r-- 1 joshg joshg  4021 Jul  8 23:09 account_test.go
+    -r--r--r-- 1 joshg joshg  2598 Jul  8 23:09 action.go    
+    .
+    .
+    .
+    ``` 
 
 ## Create and run a program
 
@@ -287,3 +319,4 @@ If your system produced this output, you have now verified that your Go workspac
 ## Conclusion
 
 Thanks for learning with the DigitalOcean Community. Check out our offerings for compute, storage, networking, and managed databases.
+
