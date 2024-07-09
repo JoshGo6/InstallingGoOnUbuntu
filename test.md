@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Google developed the programming language [Go](https://golang.org/) out of a need for a language that was easily programmable, compiled quickly, and executed efficiently in production. Addtionally, while Go is a versatile, general-purpose language, it’s particularly well-suited for programs using networking/distributed, earning it a reputation as "the language of the cloud”. Go also simplifies formatting, by making the format part of the language specification, and deployment, by compiling to a single binary. Learning Go is straightforward, with a very small set of keywords, making it a good choice for beginners and experienced developers alike.
+Google developed the programming language [Go](https://golang.org/) out of a need for a language that was easily programmable, compiled quickly, and runs efficiently in production. Addtionally, while Go is a versatile, general-purpose language, it’s particularly well-suited for programs using networking/distributed, earning it a reputation as "the language of the cloud”. Go also simplifies formatting, by making the format part of the language specification, and deployment, by compiling to a single binary. Learning Go is straightforward, with a very small set of keywords, making it a good choice for beginners and experienced developers alike.
 
 This tutorial guides you through installing and configuring a programming workspace with Go via the command line in an for Ubuntu 18.04 environment, but the principles described here apply to other Debian Linux distributions.
 
@@ -35,7 +35,7 @@ To download and verify the Go installation file, do the following:
     curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
     ```
 
-    Using `-L0` is the equivalent of invoking both the `-L` option, which allows the server to complete the request if there is a URL redirect,  and the `-O` option, which writes the target (`go1.22.5.linux-amd64.tar.gz`) to a file of the same name in the directory (`~`) in which the `curl` command is executed. In other words, this command creates the file `~/go1.22.5.linux-amd64.tar.gz`. As the command runs, the command line updates to show the status of the tarball downloading. When the download completes, the command line prompt reappears:
+    Using `-L0` is the equivalent of invoking both the `-L` option, which allows the server to complete the request if there is a URL redirect,  and the `-O` option, which writes the target (`go1.22.5.linux-amd64.tar.gz`) to a file of the same name in the directory (`~`) in which the `curl` command is run. In other words, this command creates the file `~/go1.22.5.linux-amd64.tar.gz`. As the command runs, the command line updates to show the status of the tarball downloading. When the download completes, the command line prompt reappears:
 
     ```bash
     Output
@@ -265,7 +265,7 @@ Now that you have configured the Go workspace, test it by creating and running a
 
 In Go, every file belongs to a package. Since `hello.go` is not called by another package (which would make it a library), the file is  a standalone package, which always begins with `package main` as its first line. The next line imports the `fmt` library, since standalone packages are not called by other packages but *can* import libraries, which contain additional functionality. Importing `fmt` allows `hello.go` to use the functionality in that library instead of having to author that functionality all over again. The `fmt` library contains formatting functions, including `Println`, which prints text to the terminal. 
 
-When the file executes, the system calls the `main` function first, which comes next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompot.
+When the file runs, the system calls the `main` function first, which comes next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompot.
 
 Exit `nano` by pressing the `CTRL` and `X` keys. When prompted to save the file, press `Y` and then `ENTER`, which exits nano and returns you to the command prompt. Now run `hello.go`:
 
