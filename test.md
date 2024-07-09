@@ -102,28 +102,11 @@ The tarball file is an archive file that contains other files and directories. A
     bin      games  include  man  share
     ```
 
-## Create your Go workspace
+## Create your workspace
 
-Now that Go is installed, create a programming workspace that contains two directories: `src` and `bin`. We recommend creating these directories directly under `~/go`. To do this, run the following: 
+Now that you have installed Go, create your workspace and download your first package.
 
-```bash
-cd ~
-mkdir go
-cd go
-mkdir bin  
-mkdir src
-```
-
-The `cd ~` changes the directory to your home directory. The `mkdir go` command creates a `go` directory there, and `cd go` navigates you to that directory. The last two `mkdir` commands then create two directories, `bin` and `src`, under that location, which results in the following directory structure:
-
-```
-└── ~
-    └── go
-        ├── bin
-        └── src
-```
-
-## Understanding the workspace
+### Understanding the workspace
 
 * `src`: The directory that contains Go source files. A source file is a file that you write using the Go programming language. Source files are used by the Go compiler to create an executable binary file.
 * `bin`: The directory that contains executables built and installed by the Go tools. Executables are binary files that run on your system and perform tasks. These are typically the programs compiled by your source code or other downloaded Go source code.
@@ -134,6 +117,7 @@ You will see directories like `github.com`, `golang.org`, or others when your pr
 
 Here is what a typical workspace may look like:
 
+```bash
 .
 ├── bin
 │   ├── buffalo                                      # command executable
@@ -152,6 +136,29 @@ Here is what a typical workspace may look like:
                 └── util
                     ├── droplet.go
                     └── droplet_test.go
+```
+
+
+### Create `bin`, `src`, and `pkg`
+ 
+Now that Go is installed, create a programming workspace that contains two directories: `src` and `bin`. We recommend creating these directories directly under `~/go`. To do this, run the following: 
+
+```bash
+cd ~
+mkdir go
+cd go
+mkdir bin  
+mkdir src
+```
+
+The `cd ~` changes the directory to your home directory. The `mkdir go` command creates a `go` directory there, and `cd go` navigates you to that directory. The last two `mkdir` commands then create two directories, `bin` and `src`, under that location, which results in the following directory structure:
+
+```
+└── ~
+    └── go
+        ├── bin
+        └── src
+```
 
 ## Set environment variables
 
@@ -219,6 +226,10 @@ There are several ways of setting the necessary environment variables, but we re
     ```bash
     go version go1.22.5 linux/amd64
     ```
+
+### Download a package
+
+Now that the installatin and configuration is complete, build out the directory structure and download a package by doing thefollowing:
 
 1. Create a directory structure that contains a `GitHub` directory for source control, by running:
 
