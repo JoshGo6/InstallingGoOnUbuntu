@@ -104,27 +104,27 @@ The tarball file is an archive file that contains other files and directories. A
 
 ## Create your workspace
 
-Now that you have installed Go, create your workspace and download your first package.
+Now that you have installed Go, you can create your workspace and download your first package. This section first describes the workspace and then provides instructions on creating it and verifying that it is set up correctly.
 
 ### Understanding the workspace
 
-When you program using Go, you'll use a directory workspace that contains the following directories:
+When you program in Go, you'll use a directory workspace that contains the following primary directories:
 
 * `bin`: This directory contains executables built and installed by the Go tools. Executables are binary program files that run on a system. These files are the output of a Go compiler and are the end product of a Go program, since an executable file allows you to use your code to perform the tasks it was designed to do.
 * `pkg` This directory contains packages that you have downloaded. These packages contain Go files that you can use in your projects so that you do not have to re-create this functionality.
 * `src`: This directory contains files you have authored in Go. The Go compiler uses these files to create an executable binary file. 
 
-When importing packages into the `pkg` subdirectory, the import process often creates a version-controlled directory, which allows the developers of the packages and yourself to keep track of changes to the packages as the software evolves over time. Two typical names of of such directories are `github.com` and `golang.org`, but you may see other names, as well. If you are using a version control system like Git in conjunction with Github.com, you may also choose to put your own your source files under a directory named `github.com`, though you may choose another name. You can find out more about version control systems by viewing the official pages of [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/), and [Bazaar](http://bazaar.canonical.com/). 
+When importing packages into the `pkg` subdirectory, the import process often creates a version-controlled directory, which allows the developers of the packages and yourself to keep track of changes to the packages as the software evolves over time. Two typical names of such directories are `github.com` and `golang.org`, but you may see other names, as well. If you are using a version control system like [Git](https://git-scm.com/) in conjunction with [Github](https://www.github.com), you may also choose to put your own your source files under a directory named `github.com`, though you are free to choose another directory name. You can find out more about version control systems by viewing the official pages of [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/), and [Bazaar](http://bazaar.canonical.com/). 
 
 Besides the main `bin`, `pkg`, and `src` directories, there may be many subdirectories and files within these, as shown in the following example, which is a typical Go workspace:
 
 ```bash
 .
-├── bin
-│   ├── buffalo                                      # command executable
-│   ├── dlv                                          # command executable
-│   └── packr                                        # command executable
-├── pkg
+├── bin                                              # executables
+│   ├── buffalo                                      
+│   ├── dlv                                          
+│   └── packr                              
+├── pkg                                              # package downloads
 │   ├── mod
 │   │   ├── cache
 │   │   │   └── download
@@ -178,13 +178,13 @@ Besides the main `bin`, `pkg`, and `src` directories, there may be many subdirec
 │   └── sumdb
 │       └── sum.golang.org
 │           └── latest
-└── src
+└── src                                              # source files   
     └── github.com
         └── digitalocean
             └── godo
-                ├── .git                            # Git repository metadata
-                ├── account.go                      # package source
-                ├── account_test.go                 # test source
+                ├── .git                             # Git repository metadata
+                ├── account.go                       # source file
+                ├── account_test.go                  # source test file
                 ├── ...
                 ├── timestamp.go
                 ├── timestamp_test.go
@@ -195,7 +195,7 @@ Besides the main `bin`, `pkg`, and `src` directories, there may be many subdirec
 
 ### Create `bin`, `src`, and `pkg`
  
-Now that Go is installed, create a programming workspace that contains two directories: `src` and `bin`. We recommend creating these directories directly under `~/go`. To do this, run the following: 
+Now you will create a programming workspace that contains the `src` and `bin` directories. We recommend creating these directories directly under `~/go`, either by using the compact command `mkdir -p ~/go{bin,src}` or by issuing the equivalent in several commands, as follows: 
 
 ```bash
 cd ~
@@ -205,14 +205,16 @@ mkdir bin
 mkdir src
 ```
 
-The `cd ~` changes the directory to your home directory. The `mkdir go` command creates a `go` directory there, and `cd go` navigates you to that directory. The last two `mkdir` commands then create two directories, `bin` and `src`, under that location, which results in the following directory structure:
+The first line, `cd ~`, changes the directory to your home directory. The `mkdir go` command creates a `go` directory there, and `cd go` navigates you to that directory. The last two `mkdir` commands then create two directories, `bin` and `src`, under that location, which results in the following directory structure:
 
 ```
-└── ~
+└── $HOME       
     └── go
         ├── bin
         └── src
 ```
+
+Notice that the home directory in this diagram is not labeled `~`, but instead as `$HOME`. This is an environment variable, which we'll explain in the next section.
 
 ## Set environment variables
 
