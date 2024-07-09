@@ -279,7 +279,7 @@ Now that the installatin and configuration is complete, build out the directory 
 
 ## Create and run a program
 
-Now that you have configured the Go workspace, test it by creating and running a short “Hello, World!” program, by doing the following:
+Now that you have created your Go workspace, test it by creating and running a short program:
 
 1. Navigate to `~/go/src`.
 
