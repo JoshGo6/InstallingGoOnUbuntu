@@ -1,12 +1,12 @@
-# **How To Install Go and Set Up a Local Programming Environment on Ubuntu 18.04**
+# **How To Install and Configure Go on Ubuntu 22.04.4 LTS*
 
 Google developed [Go](https://golang.org/) out of a need for a programming language that is uncomplicated, compiles quickly, and runs efficiently in production. Addtionally, while Go is a versatile, general-purpose language, it’s particularly well-suited for programs using networking or distributed systems, earning it a reputation as "the language of the cloud”. Go also simplifies formatting, by making the format of your code part of the language specification, and it streamlines deployment by compiling to a single binary. Learning Go is straightforward, with a small set of keywords, making it a good choice for beginners and experienced developers alike.
 
-This tutorial guides you through installing and configuring a programming workspace with Go via the command line in an for Ubuntu 18.04 environment, but the principles described here apply to other Debian Linux distributions.
+This tutorial guides you through installing and configuring a programming workspace with Go via the command line in an for Ubuntu 22.04.4 LTS  environment, but the principles described here apply to other Debian Linux distributions.
 
 ## Prerequisites
 
-You will need a computer or virtual machine with Ubuntu 18.04 installed, admin access to the machine, and an internet connection. You can download this operating system via the [Ubuntu 18.04 releases page](http://releases.ubuntu.com/releases/18.04/). Additionally, this tutorial assumes you are comfortable using Ubuntu at the command line. For more information about the Linux command line, see the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial. 
+You will need a computer or virtual machine with Ubuntu 22.04.4 LTS installed, admin access to the machine, and an internet connection. You can download this operating system via the [Ubuntu 22.04.4 LTS release page](http://releases.ubuntu.com/jammy). Additionally, this tutorial assumes you are comfortable using Ubuntu at the command line. For more information about the Linux command line, see the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial. 
 
 
 ## Download and verify installation file
