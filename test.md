@@ -22,7 +22,7 @@ To download and verify the Go installation file, do the following:
 1. Copy the URL of the current binary tarball file from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it. You’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
 
     
-    ![Tarball file with SHA256 for verifying download](./assets/images/sha256-optimized.png "Tarball download")
+    ![Tarball file with SHA256 for verifying download]({{< relref "sha256-optimized.png" >}} "Tarball download")
 
 
 1. Instead of using `sudo apt install` to install Go, use `curl` to retrieve the tarball from the URL you copied, which allows you to configure Go:
