@@ -128,7 +128,7 @@ The `cd` commands navigates you to the correct directory (if you are not already
 ## Understanding the workspace
 
 * `src`: The directory that contains Go source files. A source file is a file that you write using the Go programming language. Source files are used by the Go compiler to create an executable binary file.
-* `bin`: The directory that contains executables built and installed by the Go tools. Executables are binary files that run on your system and execute tasks. These are typically the programs compiled by your source code or other downloaded Go source code.
+* `bin`: The directory that contains executables built and installed by the Go tools. Executables are binary files that run on your system and perform tasks. These are typically the programs compiled by your source code or other downloaded Go source code.
 
 The `src` subdirectory may contain multiple version control repositories (such as [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/), and [Bazaar](http://bazaar.canonical.com/)). This allows for a canonical import of code in your project. _Canonical_ imports are imports that reference a fully qualified package, such as `github.com/digitalocean/godo`.
 
