@@ -204,7 +204,7 @@ There are several ways of setting the necessary environment variables, but we re
     . (Lines of text)
     .
     .   
-    /home/joshg/go:/home/joshg/go/bin:/usr/local/go/bin
+    /home/test-user/go:/home/test-user/go/bin:/usr/local/go/bin
      ```
 
     If you are logged in as `root`, you would see `/root/go/bin` in the path.
@@ -250,17 +250,17 @@ There are several ways of setting the necessary environment variables, but we re
     .
     .
     .
-    /home/joshg/go/pkg/mod/github.com/digitalocean/godo@v1.118.0:
+    /home/test-user/go/pkg/mod/github.com/digitalocean/godo@v1.118.0:
     total 1384
-    -r--r--r-- 1 joshg joshg  2435 Jul  8 23:09 1-click.go
-    -r--r--r-- 1 joshg joshg  1408 Jul  8 23:09 1-click_test.go
-    -r--r--r-- 1 joshg joshg 23279 Jul  8 23:09 CHANGELOG.md
-    -r--r--r-- 1 joshg joshg  2716 Jul  8 23:09 CONTRIBUTING.md
-    -r--r--r-- 1 joshg joshg  2694 Jul  8 23:09 LICENSE.txt
-    -r--r--r-- 1 joshg joshg  5712 Jul  8 23:09 README.md
-    -r--r--r-- 1 joshg joshg  1898 Jul  8 23:09 account.go
-    -r--r--r-- 1 joshg joshg  4021 Jul  8 23:09 account_test.go
-    -r--r--r-- 1 joshg joshg  2598 Jul  8 23:09 action.go    
+    -r--r--r-- 1 test-user test-user  2435 Jul  8 23:09 1-click.go
+    -r--r--r-- 1 test-user test-user  1408 Jul  8 23:09 1-click_test.go
+    -r--r--r-- 1 test-user test-user 23279 Jul  8 23:09 CHANGELOG.md
+    -r--r--r-- 1 test-user test-user  2716 Jul  8 23:09 CONTRIBUTING.md
+    -r--r--r-- 1 test-user test-user  2694 Jul  8 23:09 LICENSE.txt
+    -r--r--r-- 1 test-user test-user  5712 Jul  8 23:09 README.md
+    -r--r--r-- 1 test-user test-user  1898 Jul  8 23:09 account.go
+    -r--r--r-- 1 test-user test-user  4021 Jul  8 23:09 account_test.go
+    -r--r--r-- 1 test-user test-user  2598 Jul  8 23:09 action.go    
     .
     .
     .
