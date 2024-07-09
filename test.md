@@ -362,7 +362,7 @@ Now that you have created your Go workspace, test it by creating and running a s
 
     In Go, every file belongs to a package. Since `hello.go` is not called by another package (which would make it a library), the file is a standalone package, which always begins with `package main` as its first line. The next line imports the `fmt` library. (Standalone packages are not called by other packages but *can* import libraries, which contain additional functionality.) Importing `fmt` allows `hello.go` to use the functionality in that library instead of requiring the developer to author that functionality all over again. The `fmt` library contains formatting functions, including `Println`, which prints text to the terminal. 
 
-    When the file runs, the system calls the `main` function first, which comes next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompt.
+    When `hello.go` runs, the operating system calls the `main` function first, which appears next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompt.
 
 1. Save the file by entering `CTRL+O` and then pressing `Enter`, when prompted.
 
@@ -381,4 +381,4 @@ Now that you have created your Go workspace, test it by creating and running a s
     Hello, World!
     ```
 
-    If your system produced this output, you have now verified that your Go installation is complete.
+    If your system produces this output, your Go installation is complete and working.
