@@ -193,7 +193,7 @@ Besides the main `bin`, `pkg`, and `src` directories, there may be many subdirec
                     └── droplet_test.go
 ```
 
-### Create `bin`, `src`, and `pkg`
+### Create `bin` and `src`
  
 Now you will create a programming workspace that contains the `src` and `bin` directories. We recommend creating these directories directly under `~/go`, either by using the compact command `mkdir -p ~/go{bin,src}` or by issuing the equivalent in several commands, as follows: 
 
@@ -284,7 +284,7 @@ There are several ways of setting the necessary environment variables, but we re
     go version go1.22.5 linux/amd64
     ```
 
-### Download a package
+### Download a package and create `pkg`
 
 Now that you have installed and configured Go, create the final of the three main directories, `pkg`, by downloading a package:
 
