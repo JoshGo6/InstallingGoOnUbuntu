@@ -286,17 +286,15 @@ There are several ways of setting the necessary environment variables, but we re
 
 ### Download a package
 
-Now that the installatin and configuration is complete, build out the directory structure and download a package by doing thefollowing:
+Now that you have installed and configured Go, create the final of the three main directories, `pkg`, by downloading a package:
 
-1. Create a directory structure that contains a `GitHub` directory for source control, by running:
+1. Download and install the latest version of the DigitalOcean `Godo` package by running:
 
     ```bash
     go install github.com/digitalocean/godo@latest
     ```
 
-    This installs the `Godo`, which is a Go client library for accessing the DigitalOcean V2 API (application programming interface).
-
-    Your output may vary, but may look like the following:
+    `Godo` is a Go client library for accessing the DigitalOcean V2 API (application programming interface). Your system may or may not issue a warning, but the output should be similar to the following:
 
     ```bash
     Output
@@ -305,13 +303,14 @@ Now that the installatin and configuration is complete, build out the directory 
     The go.mod file for the module providing named packages contains one or more replace directives. It must not contain directives that would cause it to be interpreted differently than if it were the main module.
     ```
 
-1. Verify that the command installed `Godo` and created the directory structure by running:
+1. Verify that `go install` installed `Godo` and created the directory structure by running:
 
     ```bash
+    cd ~/go
     ls -lR1  
     ```
 
-   If the installation was successful, the command generates a substantial amount of output:
+  The `-lR1` options for `ls` configure it to list files in long form (`l`), listing recursively down into nested directories (`R`), with one file or directory listed per line (`1`). If the installation was successful, `ls -lR1` generates a substantial amount of output, only a small portion of which is shown below:
 
     ```bash
     Output
