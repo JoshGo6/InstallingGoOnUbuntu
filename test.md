@@ -123,6 +123,60 @@ Here is what a typical workspace may look like:
 │   ├── buffalo                                      # command executable
 │   ├── dlv                                          # command executable
 │   └── packr                                        # command executable
+├── pkg
+│   ├── mod
+│   │   ├── cache
+│   │   │   └── download
+│   │   │       ├── github.com
+│   │   │       │   └── digitalocean
+│   │   │       │       └── godo
+│   │   │       │           └── @v
+│   │   │       │               ├── list
+│   │   │       │               ├── v1.118.0.info
+│   │   │       │               ├── v1.118.0.lock
+│   │   │       │               ├── v1.118.0.mod
+│   │   │       │               ├── v1.118.0.zip
+│   │   │       │               └── v1.118.0.ziphash
+│   │   │       └── sumdb
+│   │   │           └── sum.golang.org
+│   │   │               └── lookup
+│   │   │                   └── github.com
+│   │   │                       └── digitalocean
+│   │   │                           └── godo@v1.118.0
+│   │   └── github.com
+│   │       └── digitalocean
+│   │           └── godo@v1.118.0
+│   │               ├── 1-click.go
+│   │               ├── 1-click_test.go
+│   │               ├── CHANGELOG.md
+│   │               ├── CONTRIBUTING.md
+│   │               ├── LICENSE.txt
+│   │               ├── README.md
+│   │               ├── account.go
+│   │               ├── account_test.go
+│   │               ├── action.go
+│   │               ├── action_test.go
+│   │               ├── apps.gen.go
+│   │               ├── apps.go
+│   │               ├── apps_accessors.go
+│   │               ├── apps_accessors_test.go
+│   │               ├── apps_test.go
+│   │               ├── balance.go
+│   │               ├── balance_test.go
+│   │               ├── billing_history.go
+│   │               ├── billing_history_test.go
+│   │               ├── cdn.go
+│   │               ├── cdn_test.go
+│   │               ├── certificates.go
+│   │               ├── certificates_test.go
+│   │               ├── databases.go
+│   │               ├── databases_test.go
+│   │               ├── doc.go
+│   │               ├── domains.go
+│   │               ├── domains_test.go
+│   └── sumdb
+│       └── sum.golang.org
+│           └── latest
 └── src
     └── github.com
         └── digitalocean
@@ -137,7 +191,6 @@ Here is what a typical workspace may look like:
                     ├── droplet.go
                     └── droplet_test.go
 ```
-
 
 ### Create `bin`, `src`, and `pkg`
  
