@@ -264,11 +264,13 @@ There are several ways of setting the necessary environment variables, but we re
 
     This instructs Ubuntu to reload `~/.bashrc` so the new environment variables and the updated `$PATH` are now accessible to the OS.
 
-1. Verify that `$PATH` has been updated by running:
+1. Verify that `$PATH` has been updated, by running:
 
     ```bash
     echo $PATH
     ```
+
+    This command writes the  value of `$PATH` to the terminal. Typically, the output is fairly long, but the end of it should now contain the three new paths for the workspace and the Go executable.
 
     ```bash
     Output
@@ -280,7 +282,7 @@ There are several ways of setting the necessary environment variables, but we re
 
     If you are logged in as `root`, you would see `/root/go/bin` in the path.
 
-1. Verify the installation by checking the current version of Go:
+1. Verify that the environment variables are working correctly by checking the current version of Go:
     ```bash
     go version
     ```
