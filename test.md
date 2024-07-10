@@ -9,7 +9,7 @@ This tutorial guides you through installing and configuring a programming worksp
 You will need a computer or virtual machine with Ubuntu 22.04.4 LTS installed, admin access to the machine, and an internet connection. You can download this operating system via the [Ubuntu 22.04.4 LTS release page](http://releases.ubuntu.com/jammy). Additionally, this tutorial assumes you are comfortable using Ubuntu at the command line. For more information about the Linux command line, see the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial. 
 
 
-## Download and verify installation file
+## Download and Verify Installation File
 
 To download and verify the Go installation file, do the following:
 
@@ -53,7 +53,7 @@ To download and verify the Go installation file, do the following:
     904b924d435eaea086515bc63235b192ea441bd8c9b198c507e85009e6e4c7f0  go1.22.5.linux-amd64.tar.gz
     ```
 
-## Extract the tarball file
+## Extract the Tarball File
 
 The tarball file is an archive file that contains other files and directories. After downloading it, extract and install its contents to your desired location. We recommend installation in `/usr/local`, which you can do by following these steps: 
 
@@ -102,11 +102,11 @@ The tarball file is an archive file that contains other files and directories. A
     bin      games  include  man  share
     ```
 
-## Create your workspace
+## Create your Workspace
 
 Now that you have installed Go, you can create your workspace and download your first package. This section first describes the workspace and then provides instructions on creating it and verifying that it is set up correctly.
 
-### Understanding the workspace
+### Understanding the Workspace
 
 When you program in Go, you'll use a directory workspace that contains the following primary directories:
 
@@ -216,7 +216,7 @@ The first line, `cd ~`, changes the directory to your home directory. The `mkdir
 
 Notice that the home directory in this diagram is not labeled `~`, but instead as `$HOME`. This is an environment variable, which we'll explain in the next section.
 
-## Set environment variables
+## Set Environment Variables
 
 When compiling your Go programs, you could type in full paths for the Go compiler and other files, but it's more convenient, as well as standard practice to use environment variables. Environment variables store full paths that can be referenced with the variable name, which becomes a shorthand.
 
@@ -284,7 +284,7 @@ There are several ways of setting the necessary environment variables, but we re
     go version go1.22.5 linux/amd64
     ```
 
-### Download a package and create `pkg`
+### Download a Package and Create `pkg`
 
 Now that you have installed and configured Go, create the final of the three main directories, `pkg`, by downloading a package:
 
@@ -333,7 +333,7 @@ Now that you have installed and configured Go, create the final of the three mai
     .
     ``` 
 
-## Create and run a program
+## Create and Run a Program
 
 Now that you have created your Go workspace, test it by creating and running a short program:
 
