@@ -224,7 +224,7 @@ The first line, `cd ~`, changes the directory to your home directory. The `mkdir
 
 Notice that the home directory in this diagram is not labeled `~`, but instead as `$HOME`. This is an environment variable, which we'll explain in the next section.
 
-## Set Environment Variables
+### Set Environment Variables
 
 When compiling your Go programs, you could type in full paths for the Go compiler and other files, but it's more convenient, as well as standard practice to use environment variables. Environment variables store full paths that can be referenced with the variable name, which becomes a shorthand.
 
