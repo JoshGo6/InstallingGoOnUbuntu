@@ -343,6 +343,8 @@ Now that you have installed and configured Go, create the final of the three mai
     .
     ``` 
 
+    **Note:** There are other methods of seeing this output. To limit the output to entries that contain `digitalocean` in them, run `ls -lr1 ~/go | grep digitalocean.` If you wish to see all of the output but in a graphical format, you can use the `tree` command if it is installed on your system, by running `tree ~/go`. If `tree` is not installed, you can install it using `sudo apt install tree`.
+
 ## Create and Run a Program
 
 Now that you have created your Go workspace, test it by creating and running a short program:
