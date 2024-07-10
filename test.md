@@ -108,7 +108,7 @@ The tarball file is an archive file that contains other files and directories. A
     rm ~/go1.22.5.linux-amd64.tar.gz 
     ```
 
-    The tarball file is an installation file that is no longer needed after a successful installation.
+    The tarball is an installation file that is no longer needed after a successful installation.
 
 ## Create your Workspace
 
