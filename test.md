@@ -102,6 +102,14 @@ The tarball file is an archive file that contains other files and directories. A
     bin      games  include  man  share
     ```
 
+1. If the installation succeeded, delete the tarball file by running:
+
+    ```bash
+    rm ~/go1.22.5.linux-amd64.tar.gz 
+    ```
+
+    The tarball file is an installation file that is no longer needed after a successful installation.
+
 ## Create your Workspace
 
 Now that you have installed Go, you can create your workspace and download your first package. This section first describes the workspace and then provides instructions on creating it and verifying that it is set up correctly.
