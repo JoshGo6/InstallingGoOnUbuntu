@@ -9,7 +9,7 @@ This tutorial guides you through installing and configuring a programming worksp
 You will need a computer or virtual machine with Ubuntu 22.04.4 LTS installed, admin access to the machine, and an internet connection. You can download this operating system via the [Ubuntu 22.04.4 LTS release page](http://releases.ubuntu.com/jammy). Additionally, this tutorial assumes you are comfortable using Ubuntu at the command line. For more information about the Linux command line, see the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial. 
 
 
-## Download and Verify Installation File
+## Download and Verify the Installation File
 
 To download and verify the Go installation file, do the following:
 
