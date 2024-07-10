@@ -1,226 +1,396 @@
-# **How To Install Go and Set Up a Local Programming Environment on Ubuntu 18.04**
+# Install and Configure Go on Ubuntu 22.04.4 LTS
 
-![alt_text](image1.png "image_tooltip")
+Google developed [Go](https://golang.org/) out of a need for a programming language that is uncomplicated, compiles quickly, and runs efficiently in production. Addtionally, while Go is a versatile, general-purpose language, it’s particularly well-suited for programs using networking or distributed systems, earning it a reputation as "the language of the cloud”. Go also simplifies formatting, by making the format of your code part of the language specification, and it streamlines deployment by compiling to a single binary. Learning Go is straightforward, with a small set of keywords, making it a good choice for beginners and experienced developers alike.
 
-### Introduction
-
-[Go](https://golang.org/) is a programming language that was born out of frustration at Google. Developers continually had to pick a language that executed efficiently but took a long time to compile, or to pick a language that was easy to program but ran inefficiently in production. Go was designed to have all three available at the same time: fast compilation, ease of programming, and efficient execution in production.
-
-While Go is a versatile programming language that can be used for many different programming projects, it’s particularly well suited for networking/distributed systems programs, and has earned a reputation as “the language of the cloud”. It focuses on helping the modern programmer do more with a strong set of tooling, removing debates over formatting by making the format part of the language specification, as well as making deployment easy by compiling to a single binary. Go is easy to learn, with a very small set of keywords, which makes it a great choice for beginners and experienced developers alike.
-
-This tutorial will guide you through installing and configuring a programming workspace with Go via the command line. This tutorial will explicitly cover the installation procedure for Ubuntu 18.04, but the general principles can apply to other Debian Linux distributions.
-
+This tutorial guides you through installing and configuring a programming workspace with Go via the command line in an for Ubuntu 22.04.4 LTS  environment, but the principles described here apply to other Debian Linux distributions.
 
 ## Prerequisites
 
-You will need a computer or virtual machine with Ubuntu 18.04 installed, as well as have administrative access to that machine and an internet connection. You can download this operating system via the [Ubuntu 18.04 releases page](http://releases.ubuntu.com/releases/18.04/).
+You will need a computer or virtual machine with Ubuntu 22.04.4 LTS installed, admin access to the machine, and an internet connection. You can download this operating system via the [Ubuntu 22.04.4 LTS release page](http://releases.ubuntu.com/jammy). Additionally, this tutorial assumes you are comfortable using Ubuntu at the command line. For more information about the Linux command line, see the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial. 
 
 
-## Step 1 — Setting Up Go
+## Download and Verify the Installation File
 
-In this step, you’ll install Go by downloading the current release from the [official Go downloads page](https://golang.org/dl/).
+To download and verify the Go installation file, do the following:
 
-To do this, you’ll want to find the URL for the current binary release tarball. You will also want to note the SHA256 hash listed next to it, as you’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
+1. Navigate to your home (`~`) directory:
 
-You’ll be completing the installation and setup on the command line, which is a non-graphical way to interact with your computer. That is, instead of clicking on buttons, you’ll be typing in text and receiving feedback from your computer through text as well.
+    ```bash
+    cd ~
+    ```
 
-The command line, also known as a _shell_ or _terminal_, can help you modify and automate many of the tasks you do on a computer every day, and is an essential tool for software developers. There are many terminal commands to learn that can enable you to do more powerful things. For more information about the command line, check out the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial.
+1. Copy the URL of the current binary tarball file from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it. You’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
 
-On Ubuntu 18.04, you can find the Terminal application by clicking on the Ubuntu icon in the upper-left hand corner of your screen and typing `terminal` into the search bar. Click on the Terminal application icon to open it. Alternatively, you can hit the `CTRL`, `ALT`, and `T` keys on your keyboard at the same time to open the Terminal application automatically.
-
-
-![alt_text](image2.png "image_tooltip")
-
-
-Once the terminal is open, you will manually install the Go binaries. While you could use a package manager, such as `apt-get`, walking through the manual installation steps will help you understand any configuration changes to your system that are needed to have a valid Go workspace.
-
-Before downloading Go, make sure that you are in the home (`~`) directory:
-
-cd ~
-
-Use `curl` to retrieve the tarball URL that you copied from the official Go downloads page:
-
-curl -LO https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz
-
-Next, use `sha256sum` to verify the tarball:
-
-sha256sum go1.12.1.linux-amd64.tar.gz
-
-The hash that is displayed from running the above command should match the hash that was on the downloads page. If it does not, then this is not a valid file and you should download the file again.
-
-Next, extract the downloaded archive and install it to the desired location on the system. It’s considered best practice to keep it under `/usr/local`:
-
-sha256sum go1.12.1.linux-amd64.tar.gz
-
-You will now have a directory called `go` in the `/usr/local` directory.
-
-Note: Although `/usr/local/go` is the officially-recommended location, some users may prefer or require different paths.
-
-In this step, you downloaded and installed Go on your Ubuntu 18.04 machine. In the next step you will configure your Go workspace.
+    
+    ![Tarball file with SHA256 for verifying download](./assets/images/sha256-optimized.png "Tarball download")
 
 
-## Step 2 — Creating Your Go Workspace
+1. Instead of using `sudo apt install` to install Go, use `curl` to retrieve the tarball from the URL you copied, which allows you to configure Go:
 
-You can create your programming workspace now that Go is installed. The Go workspace will contain two directories at its root:
+    ```bash
+    curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
+    ```
 
-* `src`: The directory that contains Go source files. A source file is a file that you write using the Go programming language. Source files are used by the Go compiler to create an executable binary file.
-* `bin`: The directory that contains executables built and installed by the Go tools. Executables are binary files that run on your system and execute tasks. These are typically the programs compiled by your source code or other downloaded Go source code.
+    Using `-L0` is the equivalent of invoking both the `-L` option, which allows the server to complete the request if there is a URL redirect,  and the `-O` option, which writes the target (`go1.22.5.linux-amd64.tar.gz`) to a file of the same name in the directory (`~`) in which the `curl` command is run. In other words, this command creates the file `~/go1.22.5.linux-amd64.tar.gz`. As the command runs, the command line updates to show the status of the tarball downloading. When the download completes, the command line prompt reappears:
 
-The `src` subdirectory may contain multiple version control repositories (such as [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/), and [Bazaar](http://bazaar.canonical.com/)). This allows for a canonical import of code in your project. _Canonical_ imports are imports that reference a fully qualified package, such as `github.com/digitalocean/godo`.
+    ```bash
+    Output
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                     Dload  Upload   Total   Spent    Left  Speed
+    100    75  100    75    0     0    398      0 --:--:-- --:--:-- --:--:--   401
+    100 65.7M  100 65.7M    0     0  2989k      0  0:00:22  0:00:22 --:--:-- 3281k
+    ```
 
-You will see directories like `github.com`, `golang.org`, or others when your program imports third party libraries. If you are using a code repository like `github.com`, you will also put your projects and source files under that directory. We will explore this concept later in this step.
+1. Verify the download using `sha256sum`:
 
-Here is what a typical workspace may look like:
+    ```bash
+    sha256sum go1.22.5.linux-amd64.tar.gz
+    ```
+    The hash that is displayed from running this command should match the hash that was on the downloads page. If it does not, the file may have been corrupted, and you should download the file again.
 
+    ```bash
+    Output
+    904b924d435eaea086515bc63235b192ea441bd8c9b198c507e85009e6e4c7f0  go1.22.5.linux-amd64.tar.gz
+    ```
+
+## Extract the Tarball File
+
+The tarball file is an archive file that contains other files and directories. After downloading it, extract and install its contents to your desired location. We recommend installation in `/usr/local`, which you can do by following these steps: 
+
+1. Verify that Go is not yet  installed in `/usr/local`:
+
+    ```bash
+    ls /usr/local
+    ```
+
+   `ls` lists the contents of the directory supplied as an argument, `/usr/local`:
+
+    ```bash
+    Output
+    aws-cli  etc    include  man   share
+    bin      games  lib      sbin  src
+    ```
+
+    Since a `go` directory does not appear in the output, Go is not installed yet at this location. 
+ 
+
+1. Use `tar` to extract the file from your home directory to `/usr/local`. 
+
+    ```bash
+    sudo tar -xz -f go1.22.5.linux-amd64.tar.gz -C /usr/local  
+    ```
+
+    `sudo` is the Ubuntu command that invokes admin privileges, which you need, since you are writing to a protected location that contains system files. `tar` is the utility that handles archive files, including ones that end in `tar.gz`. The `-xz` options indicate that `tar` should extract the file (`-x`) using the `gzip` algorithm (`-z`). The `-f` option indicates that we will be supplying the filename, `go1.22.5.linux-amd64.tar.gz`. Finally, `-C` indicates the target directory in wich to extract the file, `/usr/local`. (The `tar` command is a multi-purpose utility that accepts [numerous sub-commands and options](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux).)
+
+1. If the system asks for your admin password, enter it:
+
+    ```bash
+    [sudo] password for user: 
+    ```
+
+1. Check that the file was installed successfully in `/usr/local` by listing that directory's contents:
+
+    ```bash
+    ls /usr/local
+    ```
+
+    If the installation succeeded, the output of `ls` now shows the `go` directory:
+
+    ```bash
+    Output
+    aws-cli  etc    go       lib  sbin   src
+    bin      games  include  man  share
+    ```
+
+1. If the installation succeeded, delete the tarball file by running:
+
+    ```bash
+    rm ~/go1.22.5.linux-amd64.tar.gz 
+    ```
+
+    The tarball is an installation file that is no longer needed after a successful installation.
+
+## Create your Workspace
+
+Now that you have installed Go, you can create your workspace and download your first package. This section first describes the workspace and then provides instructions on creating it and verifying that it is set up correctly.
+
+### Understanding the Workspace
+
+When you program in Go, you'll use a directory workspace that contains the following primary directories:
+
+* `bin`: This directory contains executables built and installed by the Go tools. Executables are binary program files that run on a system. These files are the output of a Go compiler and are the end product of a Go program, since an executable file allows you to use your code to perform the tasks it was designed to do.
+* `pkg` This directory contains packages that you have downloaded. These packages contain Go files that you can use in your projects so that you do not have to re-create this functionality.
+* `src`: This directory contains files you have authored in Go. The Go compiler uses these files to create an executable binary file. 
+
+When importing packages into the `pkg` subdirectory, the import process often creates a version-controlled directory that allows you and the developers of the packages to keep track of changes to the packages as they evolve over time through further development. Two typical names of such directories are `github.com` and `golang.org`, but you may see other names, as well. If you are using a version control system like [Git](https://git-scm.com/) in conjunction with [Github](https://www.github.com), you may also choose to put your own your source files under a directory named `github.com`, though you are free to choose another directory name. You can find out more about version control systems by viewing the official pages of [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/), and [Bazaar](https://launchpad.net/bzr). 
+
+Besides the main `bin`, `pkg`, and `src` directories, there may be many subdirectories and files within these, as shown in the following example, which is a typical Go workspace:
+
+```bash
 .
-├── bin
-│   ├── buffalo                                      # command executable
-│   ├── dlv                                          # command executable
-│   └── packr                                        # command executable
-└── src
+├── bin                                              # executables
+│   ├── buffalo                                      
+│   ├── dlv                                          
+│   └── packr                              
+├── pkg                                              # package downloads
+│   ├── mod
+│   │   ├── cache
+│   │   │   └── download
+│   │   │       ├── github.com
+│   │   │       │   └── digitalocean
+│   │   │       │       └── godo
+│   │   │       │           └── @v
+│   │   │       │               ├── list
+│   │   │       │               ├── v1.118.0.info
+│   │   │       │               ├── v1.118.0.lock
+│   │   │       │               ├── v1.118.0.mod
+│   │   │       │               ├── v1.118.0.zip
+│   │   │       │               └── v1.118.0.ziphash
+│   │   │       └── sumdb
+│   │   │           └── sum.golang.org
+│   │   │               └── lookup
+│   │   │                   └── github.com
+│   │   │                       └── digitalocean
+│   │   │                           └── godo@v1.118.0
+│   │   └── github.com
+│   │       └── digitalocean
+│   │           └── godo@v1.118.0
+│   │               ├── 1-click.go
+│   │               ├── 1-click_test.go
+│   │               ├── CHANGELOG.md
+│   │               ├── CONTRIBUTING.md
+│   │               ├── LICENSE.txt
+│   │               ├── README.md
+│   │               ├── account.go
+│   │               ├── account_test.go
+│   │               ├── action.go
+│   │               ├── action_test.go
+│   │               ├── apps.gen.go
+│   │               ├── apps.go
+│   │               ├── apps_accessors.go
+│   │               ├── apps_accessors_test.go
+│   │               ├── apps_test.go
+│   │               ├── balance.go
+│   │               ├── balance_test.go
+│   │               ├── billing_history.go
+│   │               ├── billing_history_test.go
+│   │               ├── cdn.go
+│   │               ├── cdn_test.go
+│   │               ├── certificates.go
+│   │               ├── certificates_test.go
+│   │               ├── databases.go
+│   │               ├── databases_test.go
+│   │               ├── doc.go
+│   │               ├── domains.go
+│   │               ├── domains_test.go
+│   └── sumdb
+│       └── sum.golang.org
+│           └── latest
+└── src                                              # source files   
     └── github.com
         └── digitalocean
             └── godo
-                ├── .git                            # Git repository metadata
-                ├── account.go                      # package source
-                ├── account_test.go                 # test source
+                ├── .git                             # Git repository metadata
+                ├── account.go                       # source file
+                ├── account_test.go                  # source test file
                 ├── ...
                 ├── timestamp.go
                 ├── timestamp_test.go
                 └── util
                     ├── droplet.go
                     └── droplet_test.go
+```
 
-The default directory for the Go workspace as of 1.8 is your user’s home directory with a `go` subdirectory, or `$HOME/go`. If you are using an earlier version of Go than 1.8, it is still considered best practice to use the `$HOME/go` location for your workspace.
+### Create `bin` and `src`
+ 
+Now you will create a programming workspace that contains the `src` and `bin` directories. We recommend creating these directories directly under `~/go`, either by using the compact command `mkdir -p ~/go{bin,src}` or by issuing the equivalent in several commands, as follows: 
 
-Issue the following command to create the directory structure for your Go workspace:
+```bash
+cd ~
+mkdir go
+cd go
+mkdir bin  
+mkdir src
+```
 
-mkdir -p $HOME/go/{bin,src}
+The first line, `cd ~`, changes the directory to your home directory. The `mkdir go` command creates a `go` directory there, and `cd go` navigates you to that directory. The last two `mkdir` commands then create two directories, `bin` and `src`, under that location, which results in the following directory structure:
 
-The `-p` option tells `mkdir` to create all `parents` in the directory, even if they don’t currently exist. Using `{bin,src}` creates a set of arguments to `mkdir` and tells it to create both the `bin` directory and the `src` directory.
-
-This will ensure the following directory structure is now in place:
-
-└── $HOME
+```
+└── $HOME       
     └── go
         ├── bin
         └── src
+```
 
-Prior to Go 1.8, it was required to set a local environment variable called `$GOPATH`. `$GOPATH` told the compiler where to find imported third party source code, as well as any local source code you had written. While it is no longer explicitly required, it is still considered a good practice as many third party tools still depend on this variable being set.
+Notice that the home directory in this diagram is not labeled `~`, but instead as `$HOME`. This is an environment variable, which we'll explain in the next section.
 
-You can set your `$GOPATH` by adding the global variables to your `~/.profile`. You may want to add this into `.zshrc` or `.bashrc` file as per your shell configuration.
+### Set Environment Variables
 
-First, open `~/.profile` with `nano` or your preferred text editor:
+When compiling your Go programs, you could type in full paths for the Go compiler and other files, but it's more convenient, as well as standard practice to use environment variables. Environment variables store full paths that can be referenced with the variable name, which becomes a shorthand.
 
-nano ~/.profile
+As an example, the `$PATH` variable is an environment variable that your operating system uses to look for executable files and scripts when it can't find those files in the directory in which a command is run. When you run the Go compiler, you issue the command `go run`. Without an environment variable, you would have to run `/usr/local/go/bin/go run`. After setting up a few environment variables (including `$PATH`), you can type `go run`, instead.
 
-Set your `$GOPATH` by adding the following to the file:
+There are several ways of setting the necessary environment variables, but we recommend setting them by editing your `.bashrc` file. If you are using a shell other than `bash`, such as `zsh`, edit the corresponding file (for example, `.zshrc`). Set the environment variables by doing the following:
 
-export GOPATH=$HOME/go
+1. Open the `.bashrc` file, which is located in your home directory, using nano:
 
-When Go compiles and installs tools, it will put them in the `$GOPATH/bin` directory. For convenience, it’s common to add the workspace’s `/bin` subdirectory to your `PATH` in your `~/.profile`:
+    ```bash
+    nano ~/.bashrc
+    ```
 
-export PATH=$PATH:$GOPATH/bin
+1. Scroll to the bottom of the file and enter the following, beginning on a new line:
 
-This will allow you to run any programs you compile or download via the Go tools anywhere on your system.
+    ```bash
+    export GOPATH="$HOME/go"
+    export USERBINARIES="$GOPATH/bin"
+    export GOBINARYPATH="/usr/local/go/bin"
+    export PATH="$PATH:$GOPATH:$USERBINARIES:$GOBINARYPATH"
+    ``` 
+    These four new lines at the end of your `.bashrc` file create three new environment variables and update the `$PATH` environment variable to include the paths stored in the three environment variables, since these are the paths that Go uses. `GOPATH="$HOME/go"`, creates the first environment variable, `$GOPATH`, which is set to `$HOME/go`. This allows third party tools that look for `GOPATH` to know where your workspace is so files can be automatically put there. Note that in setting `$GOPATH`, we have used another environment variable, `$HOME` and added `/go` to the end of that path. (At the command line, when you type `cd ~`, this is equivalent to typing `cd $HOME`. When setting environment variables, we cannot use the `~` shorthand.)
 
-Finally, you need to add the `go` binary to your `PATH`. You can do this by adding `/usr/local/go/bin` to the end of the line:
+    The next environment variable, `USERBINARIES`, is created by taking the value of `$GOPATH` and appending `/bin` to the end of that path, resulting in `$USERBINARIES` being set to `$HOME/go/bin`. When Go compiles and installs tools, it puts them in this directory.
 
-export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+    The third new environment variable created is `GOBINARYPATH`, which is the path to the Go binary that you installed using `tar`. Finally, to allow you, Go, and third-party tools to run all Go programs from anywhere on your system, the final line of the file updates `$PATH` by appending the values of each of the three new environment variables to the existing value of `$PATH`.
 
-Adding `/usr/local/go/bin` to your `$PATH` makes all of the Go tools available anywhere on your system.
+1. Save the edited `.bashrc` by entering `CTRL+O` and then pressing `Enter`, when prompted.
 
-To update your shell, issue the following command to load the global variables:
+1. After `nano` confirms that the file has been written to, exit `nano` by entering `CTRL+X`.
 
-. ~/.profile
+1. To update your shell so that it can use the three new environment variables as well as the updated value of `$PATH`, run:
 
-You can verify your `$PATH` is updated by using the `echo` command and inspecting the output:
+    ```bash
+    source ~/.bashrc
+    ```
 
-echo $PATH
+    This instructs Ubuntu to reload `~/.bashrc` so the new environment variables and the updated `$PATH` are now accessible to the OS.
 
-You will see your `$GOPATH/bin` which will show up in your home directory. If you are logged in as `root`, you would see `/root/go/bin` in the path.
+1. Verify that `$PATH` has been updated, by running:
 
-You will also see the path to the Go tools for `/usr/local/go/bin`:
+    ```bash
+    echo $PATH
+    ```
 
-Verify the installation by checking the current version of Go:
+    This command writes the  value of `$PATH` to the terminal. Typically, the output is fairly long, but the end of it should now contain the three new paths for the workspace and the Go executable.
 
-go version
+    ```bash
+    Output
+    . 
+    .
+    .   
+    /home/test-user/go:/home/test-user/go/bin:/usr/local/go/bin
+     ```
 
-And we should receive output like this:
+    If you are logged in as `root`, you would see `/root/go/bin` in the path.
 
-go version go1.12.1 linux/amd64
+1. Verify that the environment variables are working correctly by checking the current version of Go:
+    ```bash
+    go version
+    ```
+    
+    You should receive output similar to the following, if the installation and environment variables are set correctly:
 
-Now that you have the root of the workspace created and your `$GOPATH` environment variable set, you can create your future projects with the following directory structure. This example assumes you are using `github.com` as your repository:
+    ```bash
+    Output
+    go version go1.22.5 linux/amd64
+    ```
 
-$GOPATH/src/github.com/username/project
+### Download a Package and Create `pkg`
 
-So as an example, if you were working on the `[https://github.com/digitalocean/godo](https://github.com/digitalocean/godo)` project, it would be stored in the following directory:
+Now that you have installed and configured Go, create the final of the three main directories, `pkg`, by downloading a package:
 
-$GOPATH/src/github.com/digitalocean/godo
+1. Download and install the latest version of the DigitalOcean `Godo` package by running:
 
-This project structure will make projects available with the `go get` tool. It will also help readability later. You can verify this by using the `go get` command and fetch the `godo` library:
+    ```bash
+    go install github.com/digitalocean/godo@latest
+    ```
 
-go get github.com/digitalocean/godo
+    `Godo` is a Go client library for accessing the DigitalOcean V2 API (application programming interface). Your system may or may not issue a warning, but the output should be similar to the following:
 
-This will download the contents of the `godo` library and create the `$GOPATH/src/github.com/digitalocean/godo` directory on your machine.
+    ```bash
+    Output
+    go: downloading github.com/digitalocean/godo v1.118.0
+    go: github.com/digitalocean/godo@latest (in github.com/digitalocean/godo@v1.118.0):
+    The go.mod file for the module providing named packages contains one or more replace directives. It must not contain directives that would cause it to be interpreted differently than if it were the main module.
+    ```
 
-You can check to see if it successfully downloaded the `godo` package by listing the directory:
+1. Verify that `go install` installed `Godo` and created the directory structure by running:
 
-ll $GOPATH/src/github.com/digitalocean/godo
+    ```bash
+    cd ~/go
+    ls -lR1  
+    ```
+    
+    The `-lR1` options for `ls` configure it to list files in long form (`l`), listing recursively down into nested directories (`R`), with one file or directory listed per line (`1`). If the installation was successful, `ls -lR1` generates a substantial amount of output, only a small portion of which is shown below:
 
-You should see output similar to this:
+    ```bash
+    Output
+    .
+    .
+    .
+    /home/test-user/go/pkg/mod/github.com/digitalocean/godo@v1.118.0:
+    total 1384
+    -r--r--r-- 1 test-user test-user  2435 Jul  8 23:09 1-click.go
+    -r--r--r-- 1 test-user test-user  1408 Jul  8 23:09 1-click_test.go
+    -r--r--r-- 1 test-user test-user 23279 Jul  8 23:09 CHANGELOG.md
+    -r--r--r-- 1 test-user test-user  2716 Jul  8 23:09 CONTRIBUTING.md
+    -r--r--r-- 1 test-user test-user  2694 Jul  8 23:09 LICENSE.txt
+    -r--r--r-- 1 test-user test-user  5712 Jul  8 23:09 README.md
+    -r--r--r-- 1 test-user test-user  1898 Jul  8 23:09 account.go
+    -r--r--r-- 1 test-user test-user  4021 Jul  8 23:09 account_test.go
+    -r--r--r-- 1 test-user test-user  2598 Jul  8 23:09 action.go    
+    .
+    .
+    .
+    ``` 
 
-drwxr-xr-x 4 root root  4096 Apr  5 00:43 ./
-drwxr-xr-x 3 root root  4096 Apr  5 00:43 ../
-drwxr-xr-x 8 root root  4096 Apr  5 00:43 .git/
--rwxr-xr-x 1 root root     8 Apr  5 00:43 .gitignore*
--rw-r--r-- 1 root root    61 Apr  5 00:43 .travis.yml
--rw-r--r-- 1 root root  2808 Apr  5 00:43 CHANGELOG.md
--rw-r--r-- 1 root root  1851 Apr  5 00:43 CONTRIBUTING.md
-.
-.
-.
--rw-r--r-- 1 root root  4893 Apr  5 00:43 vpcs.go
--rw-r--r-- 1 root root  4091 Apr  5 00:43 vpcs_test.go
+    **Note:** There are other methods of seeing this output. To limit the output to entries that contain `digitalocean` in them, run `ls -lr1 ~/go | grep digitalocean.` If you wish to see all of the output but in a graphical format, you can use the `tree` command if it is installed on your system, by running `tree ~/go`. If `tree` is not installed, you can install it using `sudo apt install tree`.
 
-In this step, you created a Go workspace and configured the necessary environment variables. In the next step you will test the workspace with some code.
+## Create and Run a Program
 
+Now that you have created your Go workspace, test it by creating and running a short program:
 
-## Step 3 — Creating a Simple Program
+1. Navigate to `~/go/src`.
 
-Now that you have the Go workspace set up, create a “Hello, World!” program. This will make sure that the workspace is configured properly, and also gives you the opportunity to become more familiar with Go. Because we are creating a single Go source file, and not an actual project, we don’t need to be in our workspace to do this.
+    ```bash
+    cd ~/go/src
+    ``` 
+    
+2. Use `nano` or another text editor to create a new file named `hello.go`.
 
-From your home directory, open up a command-line text editor, such as `nano`, and create a new file:
+    ```bash
+    nano hello.go
+    ```
 
-nano hello.go
+3. When `nano` opens, enter the following in the file:
 
-Write your program in the new file:
+    ```go
+    package main
+    import "fmt"
 
-package main
+    func main() {
+        fmt.Println("Hello, World!")
+    }   
+    ```
 
-import "fmt"
+    In Go, every file belongs to a package. Since `hello.go` is not called by another package (which would make it a library), the file is a standalone package, which always begins with `package main` as its first line. The next line imports the `fmt` library. (Standalone packages are not called by other packages but *can* import libraries, which contain additional functionality.) Importing `fmt` allows `hello.go` to use the functionality in that library instead of requiring the developer to author that functionality all over again. The `fmt` library contains formatting functions, including `Println`, which prints text to the terminal. 
 
-func main() {
-	fmt.Println("Hello, World!")
-}
+    When `hello.go` runs, the operating system calls the `main` function first, which appears next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompt.
 
-This code will use the `fmt` package and call the `Println` function with `Hello, World!` as the argument. This will cause the phrase `Hello, World!` to print out to the terminal when the program is run.
+1. Save the file by entering `CTRL+O` and then pressing `Enter`, when prompted.
 
-Exit `nano` by pressing the `CTRL` and `X` keys. When prompted to save the file, press `Y` and then `ENTER`.
+1. After `nano` confirms that the file has been written to, exit `nano` by entering `CTRL+X`.
 
-Once you exit out of `nano` and return to your shell, run the program:
+1. Run `hello.go`:
 
-go run hello.go
+    ```
+    go run hello.go
+    ```
 
-The `hello.go` program will cause the terminal to produce the following output:
+    The terminal produces the following output:
 
-Hello, World!
+    ```bash
+    Output
+    Hello, World!
+    ```
 
-In this step, you used a basic program to verify that your Go workspace is properly configured.
-
-
-## Conclusion
-
-Congratulations! At this point you have a Go programming workspace set up on your Ubuntu machine and can begin a coding project!
-
-Thanks for learning with the DigitalOcean Community. Check out our offerings for compute, storage, networking, and managed databases.
+    If your system produces this output, your Go installation is complete and working.
