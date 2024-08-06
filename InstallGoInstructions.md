@@ -8,21 +8,19 @@ For this tutorial, you need a computer running Ubuntu 22.04.4 LTS and admin acce
 
 ## Download and verify the installation file
 
-To download and verify the Go installation file, do the following:
+To download and verify the Go installation file, navigate to your home (`~`) directory:
 
-1. Navigate to your home (`~`) directory:
-
-    ```bash
+```bash
     cd ~
-    ```
+```
 
-1. Copy the URL of the current binary tarball file from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it. You’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
+Copy the URL of the current binary tarball file from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it. You’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
 
     
     ![Tarball file with SHA256 for verifying download](./assets/images/sha256-optimized.png "Tarball download")
 
 
-1. Instead of using `sudo apt install` to install Go, use `curl` to retrieve the tarball from the URL you copied, which allows you to configure Go:
+Instead of using `sudo apt install` to install Go, use `curl` to retrieve the tarball from the URL you copied, which allows you to configure Go:
 
     ```bash
     curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
@@ -38,7 +36,7 @@ To download and verify the Go installation file, do the following:
     100 65.7M  100 65.7M    0     0  2989k      0  0:00:22  0:00:22 --:--:-- 3281k
     ```
 
-1. Verify the download using `sha256sum`:
+Verify the download using `sha256sum`:
 
     ```bash
     sha256sum go1.22.5.linux-amd64.tar.gz
@@ -54,7 +52,7 @@ To download and verify the Go installation file, do the following:
 
 The tarball file is an archive file that contains other files and directories. After downloading it, extract and install its contents to your desired location. We recommend installation in `/usr/local`, which you can do by following these steps: 
 
-1. Verify that Go is not yet  installed in `/usr/local`:
+Verify that Go is not yet  installed in `/usr/local`:
 
     ```bash
     ls /usr/local
@@ -71,7 +69,7 @@ The tarball file is an archive file that contains other files and directories. A
     Since a `go` directory does not appear in the output, Go is not installed yet at this location. 
  
 
-1. Use `tar` to extract the file from your home directory to `/usr/local`. 
+Use `tar` to extract the file from your home directory to `/usr/local`. 
 
     ```bash
     sudo tar -xz -f go1.22.5.linux-amd64.tar.gz -C /usr/local  
@@ -79,13 +77,13 @@ The tarball file is an archive file that contains other files and directories. A
 
     `sudo` is the Ubuntu command that invokes admin privileges, which you need, since you are writing to a protected location that contains system files. `tar` is the utility that handles archive files, including ones that end in `tar.gz`. The `-xz` options indicate that `tar` should extract the file (`-x`) using the `gzip` algorithm (`-z`). The `-f` option indicates that we will be supplying the filename, `go1.22.5.linux-amd64.tar.gz`. Finally, `-C` indicates the target directory in wich to extract the file, `/usr/local`. (The `tar` command is a multi-purpose utility that accepts [numerous sub-commands and options](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux).)
 
-1. If the system asks for your admin password, enter it:
+If the system asks for your admin password, enter it:
 
     ```bash
     [sudo] password for user: 
     ```
 
-1. Check that the file was installed successfully in `/usr/local` by listing that directory's contents:
+Check that the file was installed successfully in `/usr/local` by listing that directory's contents:
 
     ```bash
     ls /usr/local
@@ -99,7 +97,7 @@ The tarball file is an archive file that contains other files and directories. A
     bin      games  include  man  share
     ```
 
-1. If the installation succeeded, delete the tarball file by running:
+If the installation succeeded, delete the tarball file by running:
 
     ```bash
     rm ~/go1.22.5.linux-amd64.tar.gz 
@@ -229,13 +227,13 @@ As an example, the `$PATH` variable is an environment variable that your operati
 
 There are several ways of setting the necessary environment variables, but we recommend setting them by editing your `.bashrc` file. If you are using a shell other than `bash`, such as `zsh`, edit the corresponding file (for example, `.zshrc`). Set the environment variables by doing the following:
 
-1. Open the `.bashrc` file, which is located in your home directory, using nano:
+Open the `.bashrc` file, which is located in your home directory, using nano:
 
     ```bash
     nano ~/.bashrc
     ```
 
-1. Scroll to the bottom of the file and enter the following, beginning on a new line:
+Scroll to the bottom of the file and enter the following, beginning on a new line:
 
     ```bash
     export GOPATH="$HOME/go"
@@ -249,11 +247,11 @@ There are several ways of setting the necessary environment variables, but we re
 
     The third new environment variable created is `GOBINARYPATH`, which is the path to the Go binary that you installed using `tar`. Finally, to allow you, Go, and third-party tools to run all Go programs from anywhere on your system, the final line of the file updates `$PATH` by appending the values of each of the three new environment variables to the existing value of `$PATH`.
 
-1. Save the edited `.bashrc` by entering `CTRL+O` and then pressing `Enter`, when prompted.
+Save the edited `.bashrc` by entering `CTRL+O` and then pressing `Enter`, when prompted.
 
-1. After `nano` confirms that the file has been written to, exit `nano` by entering `CTRL+X`.
+After `nano` confirms that the file has been written to, exit `nano` by entering `CTRL+X`.
 
-1. To update your shell so that it can use the three new environment variables as well as the updated value of `$PATH`, run:
+To update your shell so that it can use the three new environment variables as well as the updated value of `$PATH`, run:
 
     ```bash
     source ~/.bashrc
@@ -261,7 +259,7 @@ There are several ways of setting the necessary environment variables, but we re
 
     This instructs Ubuntu to reload `~/.bashrc` so the new environment variables and the updated `$PATH` are now accessible to the OS.
 
-1. Verify that `$PATH` has been updated, by running:
+Verify that `$PATH` has been updated, by running:
 
     ```bash
     echo $PATH
@@ -279,7 +277,7 @@ There are several ways of setting the necessary environment variables, but we re
 
     If you are logged in as `root`, you would see `/root/go/bin` in the path.
 
-1. Verify that the environment variables are working correctly by checking the current version of Go:
+Verify that the environment variables are working correctly by checking the current version of Go:
     ```bash
     go version
     ```
@@ -295,7 +293,7 @@ There are several ways of setting the necessary environment variables, but we re
 
 Now that you have installed and configured Go, create the final of the three main directories, `pkg`, by downloading a package:
 
-1. Download and install the latest version of the DigitalOcean `Godo` package by running:
+Download and install the latest version of the DigitalOcean `Godo` package by running:
 
     ```bash
     go install github.com/digitalocean/godo@latest
@@ -310,7 +308,7 @@ Now that you have installed and configured Go, create the final of the three mai
     The go.mod file for the module providing named packages contains one or more replace directives. It must not contain directives that would cause it to be interpreted differently than if it were the main module.
     ```
 
-1. Verify that `go install` installed `Godo` and created the directory structure by running:
+Verify that `go install` installed `Godo` and created the directory structure by running:
 
     ```bash
     cd ~/go
@@ -346,7 +344,7 @@ Now that you have installed and configured Go, create the final of the three mai
 
 Now that you have created your Go workspace, test it by creating and running a short program:
 
-1. Navigate to `~/go/src`.
+Navigate to `~/go/src`.
 
     ```bash
     cd ~/go/src
@@ -373,11 +371,11 @@ Now that you have created your Go workspace, test it by creating and running a s
 
     When `hello.go` runs, the operating system calls the `main` function first, which appears next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompt.
 
-1. Save the file by entering `CTRL+O` and then pressing `Enter`, when prompted.
+Save the file by entering `CTRL+O` and then pressing `Enter`, when prompted.
 
-1. After `nano` confirms that the file has been written to, exit `nano` by entering `CTRL+X`.
+After `nano` confirms that the file has been written to, exit `nano` by entering `CTRL+X`.
 
-1. Run `hello.go`:
+Run `hello.go`:
 
     ```
     go run hello.go
