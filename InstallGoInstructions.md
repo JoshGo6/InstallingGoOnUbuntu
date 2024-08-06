@@ -8,7 +8,7 @@ For this tutorial, you need a computer running Ubuntu 22.04.4 LTS and admin acce
 
 ## Download and verify the installation file
 
-To download and verify the Go installation file, navigate to your home (`~`) directory:
+Begin by downloading and verifying the Go installation file. Navigate to your home (`~`) directory:
 
 ```bash
     cd ~
@@ -17,36 +17,36 @@ To download and verify the Go installation file, navigate to your home (`~`) dir
 Copy the URL of the current binary tarball file from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it. You’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
 
     
-    ![Tarball file with SHA256 for verifying download](./assets/images/sha256-optimized.png "Tarball download")
+![Tarball file with SHA256 for verifying download](./assets/images/sha256-optimized.png "Tarball download")
 
 
-Instead of using `sudo apt install` to install Go, use `curl` to retrieve the tarball from the URL you copied, which allows you to configure Go:
+Retrieve the tarball from the URL you copied:
 
-    ```bash
-    curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
-    ```
+```bash
+curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
+```
 
-    Using `-L0` is the equivalent of invoking both the `-L` option, which allows the server to complete the request if there is a URL redirect,  and the `-O` option, which writes the target (`go1.22.5.linux-amd64.tar.gz`) to a file of the same name in the directory (`~`) in which the `curl` command is run. In other words, this command creates the file `~/go1.22.5.linux-amd64.tar.gz`. As the command runs, the command line updates to show the status of the tarball downloading. When the download completes, the command line prompt reappears:
+`-L` allows the server to complete the request if there is a URL redirect,  and `-O` writes the target (`go1.22.5.linux-amd64.tar.gz`) to a file of the same name in your home directory. As `curl` runs, the command line updates to show the status of the tarball downloading. 
 
-    ```bash
-    Output
-      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                     Dload  Upload   Total   Spent    Left  Speed
-    100    75  100    75    0     0    398      0 --:--:-- --:--:-- --:--:--   401
-    100 65.7M  100 65.7M    0     0  2989k      0  0:00:22  0:00:22 --:--:-- 3281k
-    ```
+```bash
+Output
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    75  100    75    0     0    398      0 --:--:-- --:--:-- --:--:--   401
+100 65.7M  100 65.7M    0     0  2989k      0  0:00:22  0:00:22 --:--:-- 3281k
+```
 
-Verify the download using `sha256sum`:
+When the download completes, verify the download using `sha256sum`:
 
-    ```bash
-    sha256sum go1.22.5.linux-amd64.tar.gz
-    ```
-    The hash that is displayed from running this command should match the hash that was on the downloads page. If it does not, the file may have been corrupted, and you should download the file again.
+```bash
+sha256sum go1.22.5.linux-amd64.tar.gz
+```
+The hash that is displayed from running this command should match the hash that was on the downloads page. If it does not, the file may have been corrupted, and you should download the file again.
 
-    ```bash
-    Output
-    904b924d435eaea086515bc63235b192ea441bd8c9b198c507e85009e6e4c7f0  go1.22.5.linux-amd64.tar.gz
-    ```
+```bash
+Output
+904b924d435eaea086515bc63235b192ea441bd8c9b198c507e85009e6e4c7f0  go1.22.5.linux-amd64.tar.gz
+```
 
 ## Extract the tarball file
 
