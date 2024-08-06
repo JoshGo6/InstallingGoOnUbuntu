@@ -6,7 +6,7 @@ Google developed [Go](https://golang.org/) out of a need for a simple yet powerf
 
 For this tutorial, you need a computer running Ubuntu 22.04.4 LTS and admin access, an internet connection, and a good grasp of Linux command line syntax.  Download Ubuntu via the [Ubuntu 22.04.4 LTS release page](http://releases.ubuntu.com/jammy). For more information about the Linux command line, see the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial. 
 
-## Download and Verify the Installation File
+## Download and verify the installation file
 
 To download and verify the Go installation file, do the following:
 
@@ -50,7 +50,7 @@ To download and verify the Go installation file, do the following:
     904b924d435eaea086515bc63235b192ea441bd8c9b198c507e85009e6e4c7f0  go1.22.5.linux-amd64.tar.gz
     ```
 
-## Extract the Tarball File
+## Extract the tarball file
 
 The tarball file is an archive file that contains other files and directories. After downloading it, extract and install its contents to your desired location. We recommend installation in `/usr/local`, which you can do by following these steps: 
 
@@ -107,11 +107,11 @@ The tarball file is an archive file that contains other files and directories. A
 
     The tarball is an installation file that is no longer needed after a successful installation.
 
-## Create your Workspace
+## Create your workspace
 
 Now that you have installed Go, you can create your workspace and download your first package. This section first describes the workspace and then provides instructions on creating it and verifying that it is set up correctly.
 
-### Understanding the Workspace
+### Understanding the workspace
 
 When you program in Go, you'll use a directory workspace that contains the following primary directories:
 
@@ -198,7 +198,7 @@ Besides the main `bin`, `pkg`, and `src` directories, there may be many subdirec
                     └── droplet_test.go
 ```
 
-### Create `bin` and `src`
+### Create bin and src
  
 Now you will create a programming workspace that contains the `src` and `bin` directories. We recommend creating these directories directly under `~/go`, either by using the compact command `mkdir -p ~/go{bin,src}` or by issuing the equivalent in several commands, as follows: 
 
@@ -221,7 +221,7 @@ The first line, `cd ~`, changes the directory to your home directory. The `mkdir
 
 Notice that the home directory in this diagram is not labeled `~`, but instead as `$HOME`. This is an environment variable, which we'll explain in the next section.
 
-### Set Environment Variables
+### Set environment variables
 
 When compiling your Go programs, you could type in full paths for the Go compiler and other files, but it's more convenient, as well as standard practice to use environment variables. Environment variables store full paths that can be referenced with the variable name, which becomes a shorthand.
 
@@ -291,7 +291,7 @@ There are several ways of setting the necessary environment variables, but we re
     go version go1.22.5 linux/amd64
     ```
 
-### Download a Package and Create `pkg`
+### Download a package and create pkg
 
 Now that you have installed and configured Go, create the final of the three main directories, `pkg`, by downloading a package:
 
@@ -342,7 +342,7 @@ Now that you have installed and configured Go, create the final of the three mai
 
     **Note:** There are other methods of seeing this output. To limit the output to entries that contain `digitalocean` in them, run `ls -lr1 ~/go | grep digitalocean.` If you wish to see all of the output but in a graphical format, you can use the `tree` command if it is installed on your system, by running `tree ~/go`. If `tree` is not installed, you can install it using `sudo apt install tree`.
 
-## Create and Run a Program
+## Create and run a program
 
 Now that you have created your Go workspace, test it by creating and running a short program:
 
