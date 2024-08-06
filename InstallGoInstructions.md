@@ -1,8 +1,6 @@
-# Install and Configure Go on Ubuntu 22.04.4 LTS
+# Install and configure Go on Ubuntu 22.04.4 LTS
 
-Google developed [Go](https://golang.org/) out of a need for a programming language that is uncomplicated, compiles quickly, and runs efficiently in production. Addtionally, while Go is a versatile, general-purpose language, it’s particularly well-suited for programs using networking or distributed systems, earning it a reputation as "the language of the cloud”. Go also simplifies formatting, by making the format of your code part of the language specification, and it streamlines deployment by compiling to a single binary. Learning Go is straightforward, with a small set of keywords, making it a good choice for beginners and experienced developers alike.
-
-This tutorial guides you through installing and configuring a programming workspace with Go via the command line in an for Ubuntu 22.04.4 LTS  environment, but the principles described here apply to other Debian Linux distributions.
+Google developed [Go](https://golang.org/) out of a need for a simple yet powerful programming language. Go compiles quickly as a single binary and runs efficiently, and while it's a versatile, general-purpose language, it's particularly well-suited for networking and distributed systems, earning it a reputation as "the language of the cloud.” Learning Go is straightforward, since the format of Go code is part of the language specification, and Go contains a small set of keywords, making it a good choice for both beginner and experienced developers. This tutorial details command line installation and configuration of Go in Ubuntu 22.04.4 LTS, but the principles described here apply to other Debian Linux distributions, too.
 
 ## Prerequisites
 
