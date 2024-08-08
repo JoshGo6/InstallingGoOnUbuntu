@@ -50,60 +50,52 @@ Output
 
 ## Extract the tarball file
 
-The tarball file is an archive file that contains other files and directories. After downloading it, extract and install its contents to your desired location. We recommend installation in `/usr/local`, which you can do by following these steps: 
+The tarball is an archive file containining files and directories. After downloading it, extract and install its contents to your desired location. We recommend installation in `/usr/local`. First verify that Go is not yet  installed in `/usr/local`.
 
-Verify that Go is not yet  installed in `/usr/local`:
+```bash
+ls /usr/local
+```
 
-    ```bash
-    ls /usr/local
-    ```
+If a `go` directory does not appear in the output, Go is not installed yet at this location. 
 
-   `ls` lists the contents of the directory supplied as an argument, `/usr/local`:
-
-    ```bash
-    Output
-    aws-cli  etc    include  man   share
-    bin      games  lib      sbin  src
-    ```
-
-    Since a `go` directory does not appear in the output, Go is not installed yet at this location. 
- 
+```bash
+Output
+aws-cli  etc    include  man   share
+bin      games  lib      sbin  src
+# Go does not appear in the output.
+```
 
 Use `tar` to extract the file from your home directory to `/usr/local`. 
 
-    ```bash
-    sudo tar -xz -f go1.22.5.linux-amd64.tar.gz -C /usr/local  
-    ```
+```bash
+sudo tar -xz -f go1.22.5.linux-amd64.tar.gz -C /usr/local  
+```
 
-    `sudo` is the Ubuntu command that invokes admin privileges, which you need, since you are writing to a protected location that contains system files. `tar` is the utility that handles archive files, including ones that end in `tar.gz`. The `-xz` options indicate that `tar` should extract the file (`-x`) using the `gzip` algorithm (`-z`). The `-f` option indicates that we will be supplying the filename, `go1.22.5.linux-amd64.tar.gz`. Finally, `-C` indicates the target directory in wich to extract the file, `/usr/local`. (The `tar` command is a multi-purpose utility that accepts [numerous sub-commands and options](https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux).)
+The `-x` option indicate that `tar` should extract the file, `-z` specifies  using the `gzip` algorithm, and `-f` indicates that you'll be supplying the filename, `go1.22.5.linux-amd64.tar.gz`. Finally, `-C` specifies the target directory for extracting the file, `/usr/local`. If you're prompted for your admin password, enter it:
 
-If the system asks for your admin password, enter it:
+```bash
+[sudo] password for user: 
+```
 
-    ```bash
-    [sudo] password for user: 
-    ```
+Check that the file was installed successfully in `/usr/local`.
 
-Check that the file was installed successfully in `/usr/local` by listing that directory's contents:
+```bash
+ls /usr/local
+```
 
-    ```bash
-    ls /usr/local
-    ```
+If the installation succeeded, the output of `ls` now shows the `go` directory:
 
-    If the installation succeeded, the output of `ls` now shows the `go` directory:
+```bash
+Output
+aws-cli  etc    go       lib  sbin   src
+bin      games  include  man  share
+```
 
-    ```bash
-    Output
-    aws-cli  etc    go       lib  sbin   src
-    bin      games  include  man  share
-    ```
+After a successful installation, delete the tarball, since it is no longer needed. 
 
-If the installation succeeded, delete the tarball file by running:
-
-    ```bash
-    rm ~/go1.22.5.linux-amd64.tar.gz 
-    ```
-
-    The tarball is an installation file that is no longer needed after a successful installation.
+```bash
+rm ~/go1.22.5.linux-amd64.tar.gz 
+```
 
 ## Create your workspace
 
