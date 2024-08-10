@@ -107,19 +107,16 @@ Your workspace directory structure will contain three main directories:
 
 .
 ├─ bin    # executables
-├─pkg    # package downloads
-└ src    # source files
+├─ pkg    # package downloads
+└─ src    # source files
 
-* `bin`: This directory contains executables built and installed by the Go tools. Executables are binary program files that run on a system. These files are the output of a Go compiler and are the end product of a Go program, since an executable file allows you to use your code to perform the tasks it was designed to do.
-* `pkg` This directory contains packages that you have downloaded. These packages contain Go files that you can use in your projects so that you do not have to re-create this functionality.
-* `src`: This directory contains files you have authored in Go. The Go compiler uses these files to create an executable binary file. 
+These directories each have different purposes:
 
-When importing packages into the `pkg` subdirectory, the import process often creates a version-controlled directory that allows you and the developers of the packages to keep track of changes to the packages as they evolve over time through further development. Two typical names of such directories are `github.com` and `golang.org`, but you may see other names, as well. If you are using a version control system like [Git](https://git-scm.com/) in conjunction with [Github](https://www.github.com), you may also choose to put your own your source files under a directory named `github.com`, though you are free to choose another directory name. You can find out more about version control systems by viewing the official pages of [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/), and [Bazaar](https://launchpad.net/bzr). 
+- `bin`. Contains executables built and installed by the Go compiler from your source code. 
+- `pkg`. Contains third-party source code packages with functionality you can use in your Go programs.
+- `src`. Contains your Go source files. The Go compiler uses these to create the executables in `bin`. 
 
-Besides the main `bin`, `pkg`, and `src` directories, there may be many subdirectories and files within these, as shown in the following example, which is a typical Go workspace:
-
-
-
+The `bin`, `pkg`, and `src` directories will likely contain many subdirectories. 
 
 ### Create bin and src
  
