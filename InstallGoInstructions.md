@@ -103,9 +103,12 @@ Now that you have installed Go, you can create your workspace and download your 
 
 ### Understanding the workspace
 
-When you program in Go, your directory structure will look like the following:
+Your workspace directory structure will contain three main directories:
 
-
+.
+├─ bin    # executables
+├─pkg    # package downloads
+└ src    # source files
 
 * `bin`: This directory contains executables built and installed by the Go tools. Executables are binary program files that run on a system. These files are the output of a Go compiler and are the end product of a Go program, since an executable file allows you to use your code to perform the tasks it was designed to do.
 * `pkg` This directory contains packages that you have downloaded. These packages contain Go files that you can use in your projects so that you do not have to re-create this functionality.
@@ -115,80 +118,8 @@ When importing packages into the `pkg` subdirectory, the import process often cr
 
 Besides the main `bin`, `pkg`, and `src` directories, there may be many subdirectories and files within these, as shown in the following example, which is a typical Go workspace:
 
-```bash
-.
-├── bin                      # executables
-│   ├── buffalo                                      
-│   ├── dlv                                          
-│   └── packr                              
-├── pkg                      # package downloads
-│   ├── mod
-│   │   ├── cache
-│   │   │   └── download
-│   │   │       ├── github.com
-│   │   │       │   └── digitalocean
-│   │   │       │       └── godo
-│   │   │       │           └── @v
-│   │   │       │               ├── list
-│   │   │       │               ├── v1.118.0.info
-│   │   │       │               ├── v1.118.0.lock
-│   │   │       │               ├── v1.118.0.mod
-│   │   │       │               ├── v1.118.0.zip
-│   │   │       │               └── v1.118.0.ziphash
-│   │   │       └── sumdb
-│   │   │           └── sum.golang.org
-│   │   │               └── lookup
-│   │   │                   └── github.com
-│   │   │                       └── digitalocean
-│   │   │                           └── godo@v1.118.0
-│   │   └── github.com
-│   │       └── digitalocean
-│   │           └── godo@v1.118.0
-│   │               ├── 1-click.go
-│   │               ├── 1-click_test.go
-│   │               ├── CHANGELOG.md
-│   │               ├── CONTRIBUTING.md
-│   │               ├── LICENSE.txt
-│   │               ├── README.md
-│   │               ├── account.go
-│   │               ├── account_test.go
-│   │               ├── action.go
-│   │               ├── action_test.go
-│   │               ├── apps.gen.go
-│   │               ├── apps.go
-│   │               ├── apps_accessors.go
-│   │               ├── apps_accessors_test.go
-│   │               ├── apps_test.go
-│   │               ├── balance.go
-│   │               ├── balance_test.go
-│   │               ├── billing_history.go
-│   │               ├── billing_history_test.go
-│   │               ├── cdn.go
-│   │               ├── cdn_test.go
-│   │               ├── certificates.go
-│   │               ├── certificates_test.go
-│   │               ├── databases.go
-│   │               ├── databases_test.go
-│   │               ├── doc.go
-│   │               ├── domains.go
-│   │               ├── domains_test.go
-│   └── sumdb
-│       └── sum.golang.org
-│           └── latest
-└── src                      # source files   
-    └── github.com
-        └── digitalocean
-            └── godo
-                ├── .git      # Git repository metadata
-                ├── account.go          # source file
-                ├── account_test.go     # source test file
-                ├── ...
-                ├── timestamp.go
-                ├── timestamp_test.go
-                └── util
-                    ├── droplet.go
-                    └── droplet_test.go
-```
+
+
 
 ### Create bin and src
  
