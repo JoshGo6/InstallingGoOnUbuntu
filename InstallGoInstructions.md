@@ -103,7 +103,9 @@ Now that you have installed Go, you can create your workspace and download your 
 
 ### Understanding the workspace
 
-When you program in Go, you'll use a directory workspace that contains the following primary directories:
+When you program in Go, your directory structure will look like the following:
+
+
 
 * `bin`: This directory contains executables built and installed by the Go tools. Executables are binary program files that run on a system. These files are the output of a Go compiler and are the end product of a Go program, since an executable file allows you to use your code to perform the tasks it was designed to do.
 * `pkg` This directory contains packages that you have downloaded. These packages contain Go files that you can use in your projects so that you do not have to re-create this functionality.
@@ -115,11 +117,11 @@ Besides the main `bin`, `pkg`, and `src` directories, there may be many subdirec
 
 ```bash
 .
-├── bin                                              # executables
+├── bin                      # executables
 │   ├── buffalo                                      
 │   ├── dlv                                          
 │   └── packr                              
-├── pkg                                              # package downloads
+├── pkg                      # package downloads
 │   ├── mod
 │   │   ├── cache
 │   │   │   └── download
@@ -173,13 +175,13 @@ Besides the main `bin`, `pkg`, and `src` directories, there may be many subdirec
 │   └── sumdb
 │       └── sum.golang.org
 │           └── latest
-└── src                                              # source files   
+└── src                      # source files   
     └── github.com
         └── digitalocean
             └── godo
-                ├── .git                             # Git repository metadata
-                ├── account.go                       # source file
-                ├── account_test.go                  # source test file
+                ├── .git      # Git repository metadata
+                ├── account.go          # source file
+                ├── account_test.go     # source test file
                 ├── ...
                 ├── timestamp.go
                 ├── timestamp_test.go
