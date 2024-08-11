@@ -92,13 +92,13 @@ rm ~/go1.22.5.linux-amd64.tar.gz
 
 ## Create your workspace
 
-Now that you have installed Go, you can create your workspace, a directory structure containing the directories `bin`, `src`, and `pkg` below the root directory. We recommend creating these directories directly under `~/go`.
+Now that you have installed Go, you can create your workspace, a directory structure containing the directories `bin`, `src`, and `pkg` inside your root directory, which we recommend to be `~/go`.
 
 ```bash
 mkdir -p ~/go/{bin,src,pkg}
 ```
 
-The `-p` option creates the intermediate `go` directory first, since it doesn't yet exist. Your directory structure now looks like this:
+The `-p` option creates the root `go` directory first, since it doesn't yet exist. Your workspace now looks like this:
 
 ```
 └── $HOME       
