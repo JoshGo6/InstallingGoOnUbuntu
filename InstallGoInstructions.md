@@ -98,7 +98,7 @@ Now that you have installed Go, you can create your workspace, a directory struc
 mkdir -p ~/go/{bin,src,pkg}
 ```
 
-`-p` creates the intermediate `go` directory first, since it doesn't yet exist. Your directory structure now looks like this:
+The `-p` option creates the intermediate `go` directory first, since it doesn't yet exist. Your directory structure now looks like this:
 
 ```
 └── $HOME       
@@ -106,6 +106,7 @@ mkdir -p ~/go/{bin,src,pkg}
         ├── bin   # executables
         ├── src   # source files
         └── pkg   # third-party libraries
+```
 
 Each of these directories contains a different type of file:
 
