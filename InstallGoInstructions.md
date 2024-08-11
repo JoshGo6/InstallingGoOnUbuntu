@@ -112,21 +112,14 @@ These directories each contain different files:
 - `pkg`. Third-party source packages containing source code you can use in your Go programs.
 - `src`. Your Go source files. The Go compiler uses these to create the executables in `bin`. 
 
-The `bin`, `pkg`, and `src` directories will likely contain many subdirectories. 
-
-### Create bin and src
- 
-Now you will create a programming workspace that contains the `src` and `bin` directories. We recommend creating these directories directly under `~/go`, either by using the compact command `mkdir -p ~/go{bin,src}` or by issuing the equivalent in several commands, as follows: 
+The `bin`, `pkg`, and `src` directories will likely contain many subdirectories. We recommend creating these directories directly under `~/go`.
 
 ```bash
-cd ~
-mkdir go
-cd go
-mkdir bin  
-mkdir src
+mkdir -p ~/go/{bin,src}
 ```
 
-The first line, `cd ~`, changes the directory to your home directory. The `mkdir go` command creates a `go` directory there, and `cd go` navigates you to that directory. The last two `mkdir` commands then create two directories, `bin` and `src`, under that location, which results in the following directory structure:
+`-p` creates the `go` directory first, if it doesn't yet exist. 
+Your directory structure now looks like this:
 
 ```
 └── $HOME       
@@ -135,9 +128,9 @@ The first line, `cd ~`, changes the directory to your home directory. The `mkdir
         └── src
 ```
 
-Notice that the home directory in this diagram is not labeled `~`, but instead as `$HOME`. This is an environment variable, which we'll explain in the next section.
+Before creating the final directory, `pkg`, you'll create several environment variables.
 
-### Set environment variables
+## Set environment variables
 
 When compiling your Go programs, you could type in full paths for the Go compiler and other files, but it's more convenient, as well as standard practice to use environment variables. Environment variables store full paths that can be referenced with the variable name, which becomes a shorthand.
 
