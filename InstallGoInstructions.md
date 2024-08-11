@@ -1,6 +1,6 @@
 # Install and configure Go on Ubuntu 22.04.4 LTS
 
-Google developed [Go](https://golang.org/) out of a need for a simple yet powerful programming language. Go compiles quickly as a single binary and runs efficiently, and while it's a versatile, general-purpose language, it's particularly well-suited for networking and distributed systems, earning it a reputation as "the language of the cloud.” Learning Go is straightforward, since the format of Go code is part of the language specification, and Go contains a small set of keywords, making it a good choice for both beginner and experienced developers. This tutorial details command line installation and configuration of Go in Ubuntu 22.04.4 LTS, but the principles described here apply to other Debian Linux distributions, too.
+Google developed [Go](https://golang.org/) out of a need for a simple yet powerful programming language. Go compiles quickly as a single binary, and it runs efficiently. While it's a good general-purpose language, it's particularly well-suited for networking and distributed systems, earning it a reputation as "the language of the cloud.” Learning Go is straightforward, since it contains a small set of keywords, making it a good choice for both beginner and experienced developers. This tutorial details command line installation and configuration of Go in Ubuntu 22.04.4 LTS, but the principles described here apply to other Debian Linux distributions, too.
 
 ## Prerequisites
 
@@ -8,25 +8,18 @@ For this tutorial, you need a computer running Ubuntu 22.04.4 LTS and admin acce
 
 ## Download and verify the installation file
 
-Begin by downloading and verifying the Go installation file. Navigate to your home (`~`) directory:
+Begin by downloading and verifying the Go installation file. Using a web browser, navigate to the [official Go downloads page](https://golang.org/dl/), copy the URL of the current binary tarball file, and note the SHA256 hash listed next to it. You’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
 
-```bash
-    cd ~
-```
-
-Copy the URL of the current binary tarball file from the [official Go downloads page](https://golang.org/dl/), and note the SHA256 hash listed next to it. You’ll use this hash to [verify the downloaded file](https://www.digitalocean.com/community/tutorials/how-to-verify-downloaded-files).
-
-    
 ![Tarball file with SHA256 for verifying download](./assets/images/sha256-optimized.png "Tarball download")
 
-
-Retrieve the tarball from the URL you copied:
+Using the URL you copied, download the tarball to your home directory. 
 
 ```bash
+cd ~
 curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
 ```
 
-`-L` allows the server to complete the request if there is a URL redirect,  and `-O` writes the target (`go1.22.5.linux-amd64.tar.gz`) to a file of the same name in your home directory. As `curl` runs, the command line updates to show the status of the tarball downloading. 
+`-L` allows the server to complete the request if there is a URL redirect,  and `-O` writes the target, `go1.22.5.linux-amd64.tar.gz`, to a file of the same name in your home directory. As `curl` runs, the command line updates to show the status of the tarball downloading. 
 
 ```bash
 Output
