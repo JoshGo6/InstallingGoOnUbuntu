@@ -132,7 +132,7 @@ Before creating the final directory, `pkg`, you'll create several environment va
 
 ## Set environment variables
 
-You will now add several environment variables, and add to `PATH` to make it easier to run Go. There are several ways to do this, but we recommend  editing your `.bashrc` file (or, if you aren't using bash, editing the configuration file for your shell, for example .zshrc`). Set the environment variables by doing the following:
+You will now add several environment variables and add to `PATH` to make it easier to run Go. To do this, we recommend  editing your `.bashrc` file (or, if you aren't using bash, editing the configuration file for your shell, for example .zshrc`). Set the environment variables by doing the following:
 
 Open your `.bashrc` file using nano:
 
@@ -149,53 +149,48 @@ export GOBINARYPATH="/usr/local/go/bin"
 export PATH="$PATH:$GOPATH:$USERBINARIES:$GOBINARYPATH"
 ``` 
 
-These four new lines at the end of your `.bashrc` file create three new environment variables and update the `$PATH` environment variable to include the paths stored in the three environment variables, since these are the paths that Go uses. `GOPATH="$HOME/go"`, creates the first environment variable, `$GOPATH`, which is set to `$HOME/go`. This allows third party tools that look for `GOPATH` to know where your workspace is so files can be automatically put there. Note that in setting `$GOPATH`, we have used another environment variable, `$HOME` and added `/go` to the end of that path. (At the command line, when you type `cd ~`, this is equivalent to typing `cd $HOME`. When setting environment variables, we cannot use the `~` shorthand.)
+These four lines create the following new environment variables, and update `PATH` to include the paths stored in them:
 
-    The next environment variable, `USERBINARIES`, is created by taking the value of `$GOPATH` and appending `/bin` to the end of that path, resulting in `$USERBINARIES` being set to `$HOME/go/bin`. When Go compiles and installs tools, it puts them in this directory.
+- `GOPATH`. Path to your workspace. This allows third-party tools that work with Go to find your Go workspace to put packages there.
+- `USERBINARIES`. Path Go uses to create binaries that Go compiles. 
+- `GOBINARYPATH`. Path to the binary that runs the Go compiler. 
 
-    The third new environment variable created is `GOBINARYPATH`, which is the path to the Go binary that you installed using `tar`. Finally, to allow you, Go, and third-party tools to run all Go programs from anywhere on your system, the final line of the file updates `$PATH` by appending the values of each of the three new environment variables to the existing value of `$PATH`.
+To allow you, Go, and third-party tools to run all Go programs from anywhere on your system, the final line updates `PATH` to include these three new paths.
 
-Save the edited `.bashrc` by entering `CTRL+O` and then pressing `Enter`, when prompted.
+Save the edited `.bashrc` by entering `CTRL+O` and then pressing `Enter`, when prompted. After `nano` confirms you've written to the file, exit `nano` by typing `CTRL+X`. Next update your shell to use the updated `PATH`.
 
-After `nano` confirms that the file has been written to, exit `nano` by entering `CTRL+X`.
+```bash
+source ~/.bashrc
+```
 
-To update your shell so that it can use the three new environment variables as well as the updated value of `$PATH`, run:
+Verify that `PATH` has been updated.
 
-    ```bash
-    source ~/.bashrc
-    ```
+```bash
+   echo $PATH
+```
 
-    This instructs Ubuntu to reload `~/.bashrc` so the new environment variables and the updated `$PATH` are now accessible to the OS.
+Typically, the output is fairly long, but the end of it should now contain the new paths for Go to use.
 
-Verify that `$PATH` has been updated, by running:
-
-    ```bash
-    echo $PATH
-    ```
-
-    This command writes the  value of `$PATH` to the terminal. Typically, the output is fairly long, but the end of it should now contain the three new paths for the workspace and the Go executable.
-
-    ```bash
-    Output
-    . 
-    .
-    .   
-    /home/test-user/go:/home/test-user/go/bin:/usr/local/go/bin
-     ```
-
-    If you are logged in as `root`, you would see `/root/go/bin` in the path.
+```bash
+Output
+. 
+.
+.   
+/home/test-user/go:/home/test-user/go/bin:/usr/local/go/bin
+ ```
 
 Verify that the environment variables are working correctly by checking the current version of Go:
-    ```bash
-    go version
-    ```
-    
-    You should receive output similar to the following, if the installation and environment variables are set correctly:
 
-    ```bash
-    Output
-    go version go1.22.5 linux/amd64
-    ```
+```bash
+go version
+```
+    
+Your output should be similar to the following: 
+
+```bash
+Output
+go version go1.22.5 linux/amd64
+```
 
 ### Download a package and create pkg
 
