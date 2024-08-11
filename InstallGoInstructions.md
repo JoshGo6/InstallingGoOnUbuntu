@@ -132,27 +132,24 @@ Before creating the final directory, `pkg`, you'll create several environment va
 
 ## Set environment variables
 
-When compiling your Go programs, you could type in full paths for the Go compiler and other files, but it's more convenient, as well as standard practice to use environment variables. Environment variables store full paths that can be referenced with the variable name, which becomes a shorthand.
+You will now add several environment variables, and add to `PATH` to make it easier to run Go. There are several ways to do this, but we recommend  editing your `.bashrc` file (or, if you aren't using bash, editing the configuration file for your shell, for example .zshrc`). Set the environment variables by doing the following:
 
-As an example, the `$PATH` variable is an environment variable that your operating system uses to look for executable files and scripts when it can't find those files in the directory in which a command is run. When you run the Go compiler, you issue the command `go run`. Without an environment variable, you would have to run `/usr/local/go/bin/go run`. After setting up a few environment variables (including `$PATH`), you can type `go run`, instead.
+Open your `.bashrc` file using nano:
 
-There are several ways of setting the necessary environment variables, but we recommend setting them by editing your `.bashrc` file. If you are using a shell other than `bash`, such as `zsh`, edit the corresponding file (for example, `.zshrc`). Set the environment variables by doing the following:
-
-Open the `.bashrc` file, which is located in your home directory, using nano:
-
-    ```bash
-    nano ~/.bashrc
-    ```
+```bash
+nano ~/.bashrc
+```
 
 Scroll to the bottom of the file and enter the following, beginning on a new line:
 
-    ```bash
-    export GOPATH="$HOME/go"
-    export USERBINARIES="$GOPATH/bin"
-    export GOBINARYPATH="/usr/local/go/bin"
-    export PATH="$PATH:$GOPATH:$USERBINARIES:$GOBINARYPATH"
-    ``` 
-    These four new lines at the end of your `.bashrc` file create three new environment variables and update the `$PATH` environment variable to include the paths stored in the three environment variables, since these are the paths that Go uses. `GOPATH="$HOME/go"`, creates the first environment variable, `$GOPATH`, which is set to `$HOME/go`. This allows third party tools that look for `GOPATH` to know where your workspace is so files can be automatically put there. Note that in setting `$GOPATH`, we have used another environment variable, `$HOME` and added `/go` to the end of that path. (At the command line, when you type `cd ~`, this is equivalent to typing `cd $HOME`. When setting environment variables, we cannot use the `~` shorthand.)
+```bash
+export GOPATH="$HOME/go"
+export USERBINARIES="$GOPATH/bin"
+export GOBINARYPATH="/usr/local/go/bin"
+export PATH="$PATH:$GOPATH:$USERBINARIES:$GOBINARYPATH"
+``` 
+
+These four new lines at the end of your `.bashrc` file create three new environment variables and update the `$PATH` environment variable to include the paths stored in the three environment variables, since these are the paths that Go uses. `GOPATH="$HOME/go"`, creates the first environment variable, `$GOPATH`, which is set to `$HOME/go`. This allows third party tools that look for `GOPATH` to know where your workspace is so files can be automatically put there. Note that in setting `$GOPATH`, we have used another environment variable, `$HOME` and added `/go` to the end of that path. (At the command line, when you type `cd ~`, this is equivalent to typing `cd $HOME`. When setting environment variables, we cannot use the `~` shorthand.)
 
     The next environment variable, `USERBINARIES`, is created by taking the value of `$GOPATH` and appending `/bin` to the end of that path, resulting in `$USERBINARIES` being set to `$HOME/go/bin`. When Go compiles and installs tools, it puts them in this directory.
 
