@@ -192,56 +192,41 @@ Output
 go version go1.22.5 linux/amd64
 ```
 
-### Download a package and create pkg
+## Create pkg directory
 
-Now that you have installed and configured Go, create the final of the three main directories, `pkg`, by downloading a package:
+Now that you have installed Go, create the final of the three main directories, `pkg`, by downloading downloading and installing the latest version of the DigitalOcean `Godo` package.
 
-Download and install the latest version of the DigitalOcean `Godo` package by running:
+```bash
+go install github.com/digitalocean/godo@latest
+```
 
-    ```bash
-    go install github.com/digitalocean/godo@latest
-    ```
+`Godo` is a Go client library for accessing the DigitalOcean V2 API. Your system may or may not issue a warning, but the beginning of the output should be similar to the following:
 
-    `Godo` is a Go client library for accessing the DigitalOcean V2 API (application programming interface). Your system may or may not issue a warning, but the output should be similar to the following:
+```bash
+Output
+go: downloading github.com/digitalocean/godo v1.118.0
+go: github.com/digitalocean/godo@latest (in github.com/digitalocean/godo@v1.118.0):
+```
 
-    ```bash
-    Output
-    go: downloading github.com/digitalocean/godo v1.118.0
-    go: github.com/digitalocean/godo@latest (in github.com/digitalocean/godo@v1.118.0):
-    The go.mod file for the module providing named packages contains one or more replace directives. It must not contain directives that would cause it to be interpreted differently than if it were the main module.
-    ```
+Verify that `go install` installed `Godo`, by recursively listing the files in `~/go`, filtering them to show files containing `digitalocean` in the path or filename. 
 
-Verify that `go install` installed `Godo` and created the directory structure by running:
-
-    ```bash
-    cd ~/go
-    ls -lR1  
-    ```
+```bash
+ls -R1 ~/go | grep digitalocean
+ ```
     
-    The `-lR1` options for `ls` configure it to list files in long form (`l`), listing recursively down into nested directories (`R`), with one file or directory listed per line (`1`). If the installation was successful, `ls -lR1` generates a substantial amount of output, only a small portion of which is shown below:
+ `-R1` list files recursively, one file per line. The output is piped to `grep`, which filters the output for any line that contains the string `digitalocean`. Typical output is shown below, but don't be concerned if your output varies, since any non-empty output confirms successful installation.
 
-    ```bash
-    Output
-    .
-    .
-    .
-    /home/test-user/go/pkg/mod/github.com/digitalocean/godo@v1.118.0:
-    total 1384
-    -r--r--r-- 1 test-user test-user  2435 Jul  8 23:09 1-click.go
-    -r--r--r-- 1 test-user test-user  1408 Jul  8 23:09 1-click_test.go
-    -r--r--r-- 1 test-user test-user 23279 Jul  8 23:09 CHANGELOG.md
-    -r--r--r-- 1 test-user test-user  2716 Jul  8 23:09 CONTRIBUTING.md
-    -r--r--r-- 1 test-user test-user  2694 Jul  8 23:09 LICENSE.txt
-    -r--r--r-- 1 test-user test-user  5712 Jul  8 23:09 README.md
-    -r--r--r-- 1 test-user test-user  1898 Jul  8 23:09 account.go
-    -r--r--r-- 1 test-user test-user  4021 Jul  8 23:09 account_test.go
-    -r--r--r-- 1 test-user test-user  2598 Jul  8 23:09 action.go    
-    .
-    .
-    .
-    ``` 
-
-    **Note:** There are other methods of seeing this output. To limit the output to entries that contain `digitalocean` in them, run `ls -lr1 ~/go | grep digitalocean.` If you wish to see all of the output but in a graphical format, you can use the `tree` command if it is installed on your system, by running `tree ~/go`. If `tree` is not installed, you can install it using `sudo apt install tree`.
+```bash
+Output
+digitalocean
+/home/test-user/go/pkg/mod/cache/download/github.com/digitalocean:        
+/home/test-user/go/pkg/mod/cache/download/github.com/digitalocean/godo:   
+/home/test-user/go/pkg/mod/cache/download/github.com/digitalocean/godo/@v:
+/home/test-user/go/pkg/mod/github.com/digitalocean/godo@v1.118.0/util:
+.
+.
+.
+```
 
 ## Create and run a program
 
