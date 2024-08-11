@@ -176,42 +176,6 @@ Output
 go version go1.22.5 linux/amd64
 ```
 
-## Create pkg directory
-
-Now that you have installed Go, create the final of the three main directories, `pkg`, by downloading downloading and installing the latest version of the DigitalOcean `Godo` package.
-
-```bash
-go install github.com/digitalocean/godo@latest
-```
-
-`Godo` is a Go client library for accessing the DigitalOcean V2 API. Your system may or may not issue a warning, but the beginning of the output should be similar to the following:
-
-```bash
-Output
-go: downloading github.com/digitalocean/godo v1.118.0
-go: github.com/digitalocean/godo@latest (in github.com/digitalocean/godo@v1.118.0):
-```
-
-Verify that `go install` installed `Godo`, by recursively listing the files in `~/go`, filtering them to show files containing `digitalocean` in the path or filename. 
-
-```bash
-ls -R1 ~/go | grep digitalocean
- ```
-    
- `-R1` list files recursively, one file per line. The output is piped to `grep`, which filters the output for any line that contains the string `digitalocean`. Typical output is shown below, but don't be concerned if your output varies, since any non-empty output confirms successful installation.
-
-```bash
-Output
-digitalocean
-/home/test-user/go/pkg/mod/cache/download/github.com/digitalocean:        
-/home/test-user/go/pkg/mod/cache/download/github.com/digitalocean/godo:   
-/home/test-user/go/pkg/mod/cache/download/github.com/digitalocean/godo/@v:
-/home/test-user/go/pkg/mod/github.com/digitalocean/godo@v1.118.0/util:
-.
-.
-.
-```
-
 ## Create and run a program
 
 Now that you've installed Go and created a workspace, you are ready to test it by creating and running a short program. Use `nano` to create a new file, `~/go/src/hello.go`.
