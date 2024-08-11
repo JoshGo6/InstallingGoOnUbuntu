@@ -230,50 +230,34 @@ digitalocean
 
 ## Create and run a program
 
-Now that you have created your Go workspace, test it by creating and running a short program:
+Now that you've installed Go and created a workspace, you are ready to test it by creating and running a short program. Use `nano` to create a new file, `~/go/src/hello.go`.
 
-Navigate to `~/go/src`.
+```bash
+nano ~/go/src/hello.go
+```
 
-    ```bash
-    cd ~/go/src
-    ``` 
-    
-2. Use `nano` or another text editor to create a new file named `hello.go`.
+When `nano` opens, enter the following in the file:
 
-    ```bash
-    nano hello.go
-    ```
+```go
+package main
+import "fmt"
 
-3. When `nano` opens, enter the following in the file:
+func main() {
+    fmt.Println("Hello, World!")
+}   
+```
 
-    ```go
-    package main
-    import "fmt"
+Save the file by entering `CTRL+O` and then pressing `Enter`. After `nano` confirms that the file has been written, exit `nano` by entering `CTRL+X`. Next run `hello.go`:
 
-    func main() {
-        fmt.Println("Hello, World!")
-    }   
-    ```
+```
+go run hello.go
+ ```
 
-    In Go, every file belongs to a package. Since `hello.go` is not called by another package (which would make it a library), the file is a standalone package, which always begins with `package main` as its first line. The next line imports the `fmt` library. (Standalone packages are not called by other packages but *can* import libraries, which contain additional functionality.) Importing `fmt` allows `hello.go` to use the functionality in that library instead of requiring the developer to author that functionality all over again. The `fmt` library contains formatting functions, including `Println`, which prints text to the terminal. 
+The terminal produces the following output:
 
-    When `hello.go` runs, the operating system calls the `main` function first, which appears next in the file. This function, in turn, calls the `Println` function from the imported `fmt` package to print the string `Hello, World!` to the terminal. There is no more code in the file, so program execution completes at that point, and the system returns to the command prompt.
+ ```bash
+ Output
+ Hello, World!
+ ```
 
-Save the file by entering `CTRL+O` and then pressing `Enter`, when prompted.
-
-After `nano` confirms that the file has been written to, exit `nano` by entering `CTRL+X`.
-
-Run `hello.go`:
-
-    ```
-    go run hello.go
-    ```
-
-    The terminal produces the following output:
-
-    ```bash
-    Output
-    Hello, World!
-    ```
-
-    If your system produces this output, your Go installation is complete and working.
+If your system produces this output, your Go installation is complete and working.
