@@ -92,22 +92,7 @@ rm ~/go1.22.5.linux-amd64.tar.gz
 
 ## Create your workspace
 
-Now that you have installed Go, you can create your workspace, a directory structure containing three directories below the root directory:
-
-```bash
-.
-├─ bin    # executables
-├─ pkg    # package downloads
-└─ src    # source files
-```
-
-These directories each contain different files:
-
-- `bin`. Executables built and installed by the Go compiler from your source code. 
-- `pkg`. Third-party source packages containing source code you can use in your Go programs.
-- `src`. Your Go source files. The Go compiler uses these to create the executables in `bin`. 
-
-The `bin`, `pkg`, and `src` directories will likely contain many subdirectories. We recommend creating these directories directly under `~/go`.
+Now that you have installed Go, you can create your workspace, a directory structure containing the directories `bin`, `src`, and `pkg` below the root directory. We recommend creating these directories directly under `~/go`.
 
 ```bash
 mkdir -p ~/go/{bin,src,pkg}
@@ -118,10 +103,15 @@ mkdir -p ~/go/{bin,src,pkg}
 ```
 └── $HOME       
     └── go
-        ├── bin
-        ├── src
-        └── pkg 
-```
+        ├── bin   # executables
+        ├── src   # source files
+        └── pkg   # third-party libraries
+
+Each of these directories contains a different type of file:
+
+- `bin`. Executables built and installed by the Go compiler from your source code. 
+- `src`. Your Go source files. The Go compiler uses these to create the executables in `bin`. 
+- `pkg`. Third-party libraries (packages) containing source code you can use in your Go programs.
 
 ## Set environment variables
 
