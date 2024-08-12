@@ -116,9 +116,7 @@ Each of these directories contains a different type of file:
 
 ## Set environment variables
 
-You will now add several environment variables and add to `PATH` to make it easier to run Go. To do this, we recommend  editing your `.bashrc` file (or, if you aren't using bash, editing the configuration file for your shell, for example .zshrc`). Set the environment variables by doing the following:
-
-Open your `.bashrc` file using nano:
+Now update `PATH` to make it easier to run Go. To do this, we recommend  editing your `.bashrc` file. (If you aren't using bash, edit your shell's configuration file, for example `.zshrc`). Use `nano` to edit `.bashrc`.
 
 ```bash
 nano ~/.bashrc
@@ -133,15 +131,13 @@ export GOBINARYPATH="/usr/local/go/bin"
 export PATH="$PATH:$GOPATH:$USERBINARIES:$GOBINARYPATH"
 ``` 
 
-These four lines create the following new environment variables, and update `PATH` to include the paths stored in them:
+The first three lines create the following new environment variables:
 
-- `GOPATH`. Path to your workspace. This allows third-party tools that work with Go to find your Go workspace to put packages there.
-- `USERBINARIES`. Path Go uses to create binaries that Go compiles. 
-- `GOBINARYPATH`. Path to the binary that runs the Go compiler. 
+- `GOPATH`. Path to your workspace. This allows third-party tools that work with Go to find the root directory. 
+- `USERBINARIES`. Path Go uses to create binaries that Go compiles from your source code. 
+- `GOBINARYPATH`. Path to the Go compiler. 
 
-To allow you, Go, and third-party tools to run all Go programs from anywhere on your system, the final line updates `PATH` to include these three new paths.
-
-Save the edited `.bashrc` by entering `CTRL+O` and then pressing `Enter`, when prompted. After `nano` confirms you've written to the file, exit `nano` by typing `CTRL+X`. Next update your shell to use the updated `PATH`.
+To allow you, Go, and third-party tools to run all Go programs from anywhere on your system, the final line added to `.bashrc` updates `PATH` to include these three new paths. Save the edited `.bashrc` in `nano` by entering `CTRL+O` and then pressing `Enter`, when prompted. After `nano` confirms you've written to the file, exit `nano` by typing `CTRL+X`. Next, update your shell to use the updated `PATH`.
 
 ```bash
 source ~/.bashrc
