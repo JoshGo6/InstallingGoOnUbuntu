@@ -1,10 +1,10 @@
 # Install and Configure Go on Ubuntu
 
-Google developed [Go](https://golang.org/) out of a need for a simple yet powerful programming language. Go compiles quickly as a single binary, and it runs efficiently. While it's a good general-purpose language, it's particularly well-suited for networking and distributed systems, earning it a reputation as "the language of the cloud.” Learning Go is straightforward, since it contains a small set of keywords, making it a good choice for both beginner and experienced developers. This tutorial details command line installation and configuration of Go in Ubuntu 22.04.4 LTS, but the principles described here apply to other Debian Linux distributions, too.
+Google developed [Go](https://golang.org/) out of a need for a simple yet powerful programming language. Go compiles quickly as a single binary, and it runs efficiently. While it's a good general-purpose language, it's particularly well-suited for networking and distributed systems, earning it a reputation as "the language of the cloud.” Learning Go is straightforward, since it contains a small set of keywords, making it a good choice for both beginner and experienced developers. This tutorial details the command-line installation and configuration of Go in Ubuntu 22.04.4 LTS, but the principles described here apply to other Debian Linux distributions, too.
 
 ## Prerequisites
 
-For this tutorial, you need a computer running Ubuntu 22.04.4 LTS and admin access, an internet connection, and a good grasp of Linux command line syntax.  Download Ubuntu via the [Ubuntu 22.04.4 LTS release page](http://releases.ubuntu.com/jammy). For more information about the Linux command line, see the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial. 
+For this tutorial, you need a computer running Ubuntu 22.04.4 LTS and admin access, an internet connection, and a good understanding of Linux command-line syntax.  Download Ubuntu via the [Ubuntu 22.04.4 LTS release page](http://releases.ubuntu.com/jammy). For more information about the Linux command line, see the [Introduction to the Linux Terminal](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal) tutorial. 
 
 ## Download and verify the installation file
 
@@ -19,7 +19,7 @@ cd ~
 curl -LO https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
 ```
 
-`-L` allows the server to complete the request if there is a URL redirect,  and `-O` writes the target, `go1.22.5.linux-amd64.tar.gz`, to a file of the same name in your home directory. As `curl` runs, the command line updates to show the status of the tarball downloading. 
+`-L` allows the server to complete the request if there is a URL redirect,  and `-O` writes the target, `go1.22.5.linux-amd64.tar.gz`, to a file of the same name in your home directory. As `curl` runs, the command line updates to show the download progress of the tarball. 
 
 ```bash
 Output
@@ -34,7 +34,7 @@ When the download completes, verify the download using `sha256sum`:
 ```bash
 sha256sum go1.22.5.linux-amd64.tar.gz
 ```
-The hash that is displayed from running this command should match the hash that was on the downloads page. If it does not, the file may have been corrupted, and you should download the file again.
+The displayed hash should match the hash on the downloads page. If it doesn't, the file may be corrupted, and you should download it again.
 
 ```bash
 Output
@@ -43,7 +43,7 @@ Output
 
 ## Extract the tarball file
 
-The tarball is an archive file containining files and directories. After downloading it, extract and install its contents to your desired location. We recommend installation in `/usr/local`. First verify that Go is not yet  installed in `/usr/local`.
+The tarball is an archive file containing files and directories. After downloading it, extract and install its contents to your desired location. We recommend installation in `/usr/local`. First verify that Go is not yet  installed in `/usr/local`.
 
 ```bash
 ls /usr/local
@@ -64,7 +64,7 @@ Use `tar` to extract the file from your home directory to `/usr/local`.
 sudo tar -xz -f go1.22.5.linux-amd64.tar.gz -C /usr/local  
 ```
 
-The `-x` option indicate that `tar` should extract the file, `-z` specifies  using the `gzip` algorithm, and `-f` indicates that you'll be supplying the filename, `go1.22.5.linux-amd64.tar.gz`. Finally, `-C` specifies the target directory for extracting the file, `/usr/local`. If you're prompted for your admin password, enter it:
+The `-x` option indicates that `tar` should extract the file, `-z` specifies  using the `gzip` algorithm, and `-f` indicates that you'll be supplying the filename, `go1.22.5.linux-amd64.tar.gz`. Finally, `-C` specifies the target directory for extracting the file, `/usr/local`. If you're prompted for your admin password, enter it:
 
 ```bash
 [sudo] password for user: 
@@ -92,7 +92,7 @@ rm ~/go1.22.5.linux-amd64.tar.gz
 
 ## Create your workspace
 
-Now that you have installed Go, you can create your workspace, a directory structure containing the directories `bin`, `src`, and `pkg` inside your root directory, which we recommend to be `~/go`.
+Now that you've installed Go, you can create your workspace, a directory structure containing the directories `bin`, `src`, and `pkg` inside your root directory, which we recommend to be `~/go`.
 
 ```bash
 mkdir -p ~/go/{bin,src,pkg}
@@ -112,7 +112,7 @@ Each of these directories contains a different type of file:
 
 - `bin`. Executables built and installed by the Go compiler from your source code. 
 - `src`. Your Go source files. The Go compiler uses these to create the executables in `bin`. 
-- `pkg`. Third-party libraries (packages) containing source code you can use in your Go programs.
+- `pkg`. Third-party libraries (packages) containing source code you can use in your Go projects.
 
 ## Set environment variables
 
@@ -137,7 +137,7 @@ The first three lines create the following new environment variables:
 - `USERBINARIES`. Path Go uses to create binaries that Go compiles from your source code. 
 - `GOBINARYPATH`. Path to the Go compiler. 
 
-To allow you, Go, and third-party tools to run all Go programs from anywhere on your system, the final line added to `.bashrc` updates `PATH` to include these three new paths. Save the edited `.bashrc` in `nano` by entering `CTRL+O` and then pressing `Enter`, when prompted. After `nano` confirms you've written to the file, exit `nano` by typing `CTRL+X`. Next, update your shell to use the updated `PATH`.
+To allow you, Go, and third-party tools to run Go programs from anywhere on your system, the final line added to `.bashrc` updates `PATH` to include these three new paths. Save the edited `.bashrc` in `nano` by entering `CTRL+O` and then pressing `Enter`. After `nano` confirms you've written to the file, exit `nano` by typing `CTRL+X`. Next, update your shell to use the updated `PATH`.
 
 ```bash
 source ~/.bashrc
@@ -204,4 +204,4 @@ The terminal produces the following output:
  Hello, World!
  ```
 
-If your system produces this output, your Go installation is complete and working.
+If your system produces this output, your Go installation is complete and functioning properly.
