@@ -19,7 +19,7 @@ cd ~
 curl -L -O https://go.dev/dl/go1.22.5.linux-amd64.tar.gz 
 ```
 
-`-L` allows the server to complete the request if there is a URL redirect,  and `-O` writes the target, `go1.22.5.linux-amd64.tar.gz`, to a file of the same name in your home directory. As `curl` runs, the command line shows the download progress of the tarball. When the download completes, verify the download using `sha256sum`:
+`-L` allows the server to complete the request if there is a URL redirect,  and `-O` writes the target, `go1.22.5.linux-amd64.tar.gz`, to a file of the same name in your home directory. As `curl` runs, the command line shows the download progress of the tarball. When the download completes, verify the file using `sha256sum`:
 
 ```bash
 sha256sum go1.22.5.linux-amd64.tar.gz
@@ -39,7 +39,7 @@ The tarball is an archive file containing files and directories. After downloadi
 ls /usr/local
 ```
 
-If a `go` directory does not appear in the output, Go is not installed yet at this location. 
+If a `go` directory does not appear in the output, Go isn't installed yet at this location. 
 
 ```bash
 Output
@@ -181,7 +181,7 @@ func main() {
 }   
 ```
 
-Save the file with `CTRL+O` and then `Enter`. After `nano` confirms that the file has been written, exit `nano` by entering `CTRL+X`. Next run `hello.go`:
+Save the file with `CTRL+O` and then `Enter`. After `nano` confirms you've written to the file, exit `nano` by typing `CTRL+X`. Next, run `hello.go`.
 
 ```
 go run ~/go/src/hello.go
