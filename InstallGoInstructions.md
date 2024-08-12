@@ -194,7 +194,7 @@ func main() {
 Save the file by entering `CTRL+O` and then pressing `Enter`. After `nano` confirms that the file has been written, exit `nano` by entering `CTRL+X`. Next run `hello.go`:
 
 ```
-go run hello.go
+go run ~/go/src/hello.go
  ```
 
 The terminal produces the following output:
